@@ -8,6 +8,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "KudetaScript";
+  src: url("assets/fonts/KudetaScript.woff") format('woff');
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("assets/fonts/roboto.woff") format('woff');
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
