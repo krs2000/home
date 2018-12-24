@@ -8,7 +8,7 @@ left:2rem;
 z-index:99;
   `;
 
-const MenuButton    = (props) => {
+const MenuButton  = (props) => {
 
   return (<Wrapper><button>X</button></Wrapper>)
 }

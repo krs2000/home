@@ -5,3 +5,5 @@ export { default as Menu } from './Menu';
 export { default as MenuButton } from './MenuButton';
 export { default as Slogan } from './Slogan';
 export { default as WelcomeSection } from './WelcomeSection';
+export { default as BlogSection } from './BlogSection';
+export { default as Header } from './Header';
