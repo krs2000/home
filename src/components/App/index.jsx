@@ -6,7 +6,10 @@ import { Home } from '../../components';
 const App = (props) => {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" 
+   component={Home} />
+      <Route  path="/:page" 
+   component={Home} />
     </Switch>
   )
 }

@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import { MenuButton, Menu } from '../'
+import { MenuButton, Menu } from '../';
+import styled from 'styled-components';
 
-
+const  Wrapper = styled.section`
+position: fixed;
+top:2rem;
+left:5%;
+z-index:89;
+cursor: pointer;
+width: 48px;
+height: 48px;
+overflow: visible;
+  `;
 class Hamburger extends Component {
   constructor(props) {
     super(props);
@@ -22,10 +32,11 @@ class Hamburger extends Component {
   render() {
     return (
       <div >
-        <div onClick={() => this.handleMenuClick()}>
-        <MenuButton open={this.state.menuOpen} color='white' />
-        </div>
-        {this.state.menuOpen && <Menu ></Menu>}
+        <Wrapper onClick={() => this.handleMenuClick()}>
+        <MenuButton isOpen={this.state.menuOpen} color='white' />
+        </Wrapper>
+  <Menu onClick={() => this.handleLinkClick()} isOpen={this.state.menuOpen} parallax={this.props.parallax} ></Menu>
+
       </div >
     );
   }

@@ -7,15 +7,22 @@ import { Header } from '../'
 const Wrapper = styled.section`
 height: 100vh;
 width:100%;
+padding-left:10%;
 background: white;
 position: relative;
+display:flex;
+justify-content:center;
+align-items:center;
   `;
 
 const SwipeBlog = styled.section`
-  height: 100vh;
-  width:100%;
+  height: 70vh;
+  width:60vw;
 display:flex;
 justify-content: space-around;
+img{
+  max-width:70vw;
+}
     `;
 const swipingLeft = () => {
 }
@@ -38,22 +45,22 @@ const ExampleSlider = (articles) => (
 const returnArticles = (article) => {
   return (
     <div key={`article-${article._id}`}>
-      <img className="card__image" src="https://source.unsplash.com/category/nature/400x260" alt="blog" />
-      <div className="card__copy">
         <h4>{article.title}</h4>
         <p>{article.body}</p>
+      <img className="card__image" src="https://source.unsplash.com/category/nature/400x260" alt="blog" />
+      <div className="card__copy">
       </div>
 
     </div>)
 }
 
 
-const BlogSection = (props) => {
+const SectionBlog = (props) => {
   return (<Wrapper>
-    <Header text='Blog' />
+    {/* <Header text='Blog' /> */}
     {ExampleSlider(props.articles)}
   </Wrapper>)
 }
 
 
-export default BlogSection;
+export default SectionBlog;

@@ -13,17 +13,19 @@ const HomepageTextBox = styled.section`
 const Wrapper = styled.section`
   z-index: 1;
   position: absolute;
+  top:0;
   left: 10vw;
   height: 40%;
-  font-size: 3.2em;
+  font-size: 3.4em;
   font-weight: 900;
+  letter-spacing:.4rem;
   font-family: Roboto;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 8rem;
-  margin-left: 5rem;
+  margin-left: 3rem;
   `;
 
   const Underline = styled.section`
@@ -33,8 +35,8 @@ const Wrapper = styled.section`
               bottom: -20px;
               left: 0;
               content: "";
-              height: 0.8rem;
-              width: 40px;
+              height: 1rem;
+              width: 55px;
               background-color: #dbaf40;
               border-radius: 50px;
           }

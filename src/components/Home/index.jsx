@@ -1,42 +1,166 @@
-import React ,{Component} from 'react';
-import { Hamburger,WelcomeSection,BlogSection } from '../'
+import React, { Component } from 'react';
+import { Hamburger, SectionWelcome, SectionBlog, SectionContact, SectionProjects, SectionAbout, MenuAside } from '../'
 import styled from 'styled-components';
 import axios from 'axios';
+import Parallax from 'react-springy-parallax'
+import Animated from 'animated/lib/targets/react-dom'
+import Easing from 'animated/lib/Easing';
+import { withRouter } from 'react-router-dom';
+import Waypoint from 'react-waypoint';
+import img from '../../assets/decoration.jpg';
+import Lines from '../../assets/lines.svg'
 
-const  Wrapper = styled.section`
-  background:black;
-  width:100%;
-  height:100vh;
-  `;
+const ParallaxStyled = styled(Parallax) `
+  background:black`
+
+  const ParallaxImage = styled.div `
+z-index:5`
+
 
 class Home extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      articles:[]
-    };
+      lastScrollPos: 0,
+      articles: [],
+      options: [{
 
+        name: 'welcome',
+        route: '#welcome',
+        scroll: 0,
+        index: 0
+      }, {
+        name: 'blog',
+        route: '#blog',
+        scroll: 1,
+        index: 1
+      }, {
+        name: 'projects',
+        route: '#projects',
+        scroll: 2,
+        index: 2
+      }, {
+        name: 'about',
+        route: '#about',
+        scroll: 3,
+        index: 3
+      }, {
+        name: 'contact',
+        route: '#contact',
+        scroll: 4,
+        index: 4
+      }],
+      active: 0
+    };
+    this.parralax = React.createRef();
+    this.wrapper = React.createRef();
+    this.welcome = React.createRef();
+    this.blog = React.createRef();
+    this.projects = React.createRef();
+    this.about = React.createRef();
+    this.contact = React.createRef();
+    this.scroll = false;
+    this.prev = 0;
+  }
+
+
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location !== this.state.location) {
+      this.setState({ location: nextProps.location });
+    }
   }
 
   componentDidMount() {
+    window.onmousewheel = document.onmousewheel = this.handleScroll;
+    window.addEventListener('DOMMouseScroll', this.handleScroll, false);
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
         this.setState({ articles: res.data.articles })
-
       });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    // if (prevProps.active !== this.props.active) {
+      let hash = this.props.location.hash.replace('#', '');
+      this.state.options.forEach((t) => {
+        if (t.name === hash) {
+          this.parralax.current.scrollTo(t.scroll)
+        }
+      })
+    // }
+  }
+
+  handleScroll = (e) => {
+    let index = this.state.active;
+    if (e.deltaY < 0 && index > 0) {
+      index--
+      this.props.history.push('/#' + this.state.options[index].name);
+    } else if (e.deltaY > 0 && index < 4) {
+      index++
+      this.props.history.push('/#' + this.state.options[index].name);
+    }
+    this.setState({ active: index });
+  }
+
+  _handleWaypointEnter = (page, index) => {
+    this.props.history.push('/#' + page);
+    this.setState({ active: index });
   }
 
   render() {
     return (
-      <Wrapper>
-        <Hamburger/>
-        <WelcomeSection/>
-        <BlogSection articles={this.state.articles}/>
-      </Wrapper>
+      <div ref={this.wrapper} >
+        <Hamburger active={this.state.active} parralax={this.parralax} />
+        <MenuAside options={this.state.options} active={this.state.active} />
+        <ParallaxStyled ref={this.parralax} pages={5}
+          effect={(animation, toValue) =>
+            Animated.timing(animation, { toValue, duration: 600, easing: Easing.linear })}>
+             <Parallax.Layer
+            offset={0}
+            speed={.3}
+            ref={this.contact} >
+           <ParallaxImage><img src={Lines} /></ParallaxImage> 
+          </Parallax.Layer>
+          <Parallax.Layer
+            onClick={() => this.parallax.scrollTo(1)}
+            offset={0}
+            speed={.1}
+            ref={this.welcome}>
+            <SectionWelcome />
+          </Parallax.Layer>
+          <Parallax.Layer
+            offset={1}
+            speed={.1}
+            ref={this.blog} >
+            <SectionBlog articles={this.state.articles} />
+          </Parallax.Layer>
+          <Parallax.Layer
+            offset={2}
+            speed={0}
+            ref={this.projects}>
+            <SectionProjects />
+          </Parallax.Layer>
+       
+          <Parallax.Layer
+            offset={3}
+            speed={0.1}
+            ref={this.about} >
+            <SectionAbout />
+          </Parallax.Layer>
+          <Parallax.Layer
+            offset={4}
+            speed={.1}
+            ref={this.contact} >
+            <SectionContact />
+          </Parallax.Layer>
+        </ParallaxStyled>
+      </div >
     );
   }
 }
 
 
 
-export default Home;
+export default withRouter(Home);

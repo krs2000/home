@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import ReactDOM from 'react-dom';
 import { Route, Switch, Router } from 'react-router-dom';
 import './index.css'
-
+import './wickedcss.min.css';
 
 
 import { App } from './components';
@@ -13,7 +13,7 @@ import { App } from './components';
 ReactDOM.render(
   <Router history={createHistory()}>
       <Switch>
-        <Route exact path="/" component={App} />
+        <Route path="/" component={App} />
       </Switch>
   </Router>,
   document.getElementById('root'),

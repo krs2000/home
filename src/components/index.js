@@ -3,7 +3,15 @@ export { default as Hamburger } from './Hamburger';
 export { default as Home } from './Home';
 export { default as Menu } from './Menu';
 export { default as MenuButton } from './MenuButton';
+export { default as MenuAside } from './MenuAside';
 export { default as Slogan } from './Slogan';
-export { default as WelcomeSection } from './WelcomeSection';
-export { default as BlogSection } from './BlogSection';
+export { default as SectionWelcome } from './SectionWelcome';
+export { default as SectionBlog } from './SectionBlog';
 export { default as Header } from './Header';
+export { default as SectionProjects } from './SectionProjects';
+
+export { default as SectionAbout } from './SectionAbout';
+export { default as SectionContact } from './SectionContact';
+export { default as Delayed } from './Delayed';
+
+export { default as ProjectLink } from './ProjectLink';
