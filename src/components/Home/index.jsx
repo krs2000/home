@@ -6,7 +6,7 @@ import Parallax from 'react-springy-parallax'
 import Animated from 'animated/lib/targets/react-dom'
 import Easing from 'animated/lib/Easing';
 import { withRouter } from 'react-router-dom';
-// import Waypoint from 'react-waypoint';
+import Waypoint from 'react-waypoint';
 import img from '../../assets/decoration.jpg';
 import Lines from '../../assets/lines.svg';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
@@ -155,15 +155,15 @@ class Home extends Component {
             offset={4}
             speed={.1}
             ref={this.contact} >
-            <SectionContact />
-          </Parallax.Layer>
-        </ParallaxStyled>
-        <MessengerCustomerChat
+            <SectionContact />   <MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
           />
+          </Parallax.Layer>
+        </ParallaxStyled>
+     
       </div >
     );
   }
