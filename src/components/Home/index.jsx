@@ -6,7 +6,7 @@ import Parallax from 'react-springy-parallax'
 import Animated from 'animated/lib/targets/react-dom'
 import Easing from 'animated/lib/Easing';
 import { withRouter } from 'react-router-dom';
-import Waypoint from 'react-waypoint';
+// import Waypoint from 'react-waypoint';
 import img from '../../assets/decoration.jpg';
 import Lines from '../../assets/lines.svg';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
@@ -79,7 +79,7 @@ class Home extends Component {
     window.addEventListener('DOMMouseScroll', this.handleScroll, false);
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
-        this.setState({ articles: res.data.articles,  active: this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
+        this.setState({ articles: res.data.articles,  active: this.props.location.hash && this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
       });
   };
 
@@ -155,15 +155,15 @@ class Home extends Component {
             offset={4}
             speed={.1}
             ref={this.contact} >
-            <SectionContact />   <MessengerCustomerChat
+            <SectionContact />  
+          </Parallax.Layer>
+        </ParallaxStyled>
+       { this.state.active === 4 && <MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
-          />
-          </Parallax.Layer>
-        </ParallaxStyled>
-     
+          />}
       </div >
     );
   }
