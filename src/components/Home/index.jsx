@@ -68,8 +68,9 @@ class Home extends Component {
 
 
   componentWillReceiveProps(nextProps) {
+
     if (nextProps.location !== this.state.location) {
-      this.setState({ location: nextProps.location });
+      this.setState({ location: nextProps.location, active: this.state.options.filter(x => x.route === nextProps.location.hash)[0].index });
     }
   }
 
@@ -78,7 +79,7 @@ class Home extends Component {
     window.addEventListener('DOMMouseScroll', this.handleScroll, false);
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
-        this.setState({ articles: res.data.articles })
+        this.setState({ articles: res.data.articles,  active: this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
       });
   };
 

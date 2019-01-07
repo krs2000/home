@@ -45,7 +45,7 @@ box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
     `;
 
   return (<Wrapper >
-    <a href={props.page} target="_blank"  >
+    <a href={props.page} rel="noopener noreferrer" target="_blank"  >
       <div>
         {props.image && <img src={props.image} alt='app icon' />}
         {props.name && <span>{props.name}</span>}

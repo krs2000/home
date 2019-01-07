@@ -56,9 +56,7 @@ class SectionContact extends Component {
       <article>If you wish a new website, or you are looking for front-end developer for your projects, feel free to contact me.
               Let's work together !        
                 </article>
-              <div><a href='https://www.linkedin.com/in/kris-krysiak-3aa83297/' target='_blank'> <img src={LinkedIn} alt="LinkedIn"/></a><a href="mailto:krskry@gmail.com">  <img src={Email} alt="Email"/></a></div>
-     
-
+              <div><a href='https://www.linkedin.com/in/kris-krysiak-3aa83297/' rel="noopener noreferrer" target='_blank'> <img src={LinkedIn} alt="LinkedIn"/></a><a href="mailto:krskry@gmail.com">  <img src={Email} alt="Email"/></a></div>
       </Wrapper>
     );
   }

@@ -23,10 +23,11 @@ cursor:pointer;
  align-items:center;
 max-height:10vh;
  z-index:99;
-   box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.2);
+
    
 &:hover{
-    color: #dbaf40;
+    color:#dbaf40;
+  //  box-shadow: 2px 0px -2px -2px #dbaf40;
 }
 
 `;
@@ -71,7 +72,7 @@ const Wrapper = styled.section`
   const BlackBox = styled.div`
     width:100vw;
     max-width:500px;
-    height:50vh;
+    height:40vh;
     background:black;
   `;
 
@@ -84,8 +85,8 @@ const Menu = (props) => {
   display:flex;
   flex-direction:  column;
   margin: ${  isOpen ? '0rem' : '-200rem'};
-
-  
+  padding-bottom:10vh;
+  background-color:black;
   
 
   `
