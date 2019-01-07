@@ -5,14 +5,15 @@ import styled from 'styled-components';
 const ProjectLink = (props) => {
 
   const Wrapper = styled.section`
-  width:85%;
+  width:80%;
   display:inline-block;
    padding:0.2vh 3vh;
    border:0.16em solid #FFFFFF;
-   margin:2vh 0;
+   margin:2vh 0.5em;
    box-sizing: border-box;
    text-decoration:none;
- 
+ max-width: 700px;
+
    font-family:'Roboto',sans-serif;
    font-weight:400;
    color:#FFFFFF;
@@ -21,10 +22,13 @@ const ProjectLink = (props) => {
   box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
 &:hover{
 box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+a p{
+  font-weight:bold;
+}
 }
   a {
     text-decoration: none;
-    color: #696969 !important;
+    color: #696969 ;
     background-color:pink;
  
  div{

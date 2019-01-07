@@ -35,6 +35,9 @@ img{
    transform: scale(1.05);
   }
 }
+a{
+  text-decoration:none;
+}
   `;
 
 

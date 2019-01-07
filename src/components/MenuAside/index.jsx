@@ -11,13 +11,13 @@ overflow: visible;
 width:1rem;
   `;
 
-const Dot = styled.section`
-  background-color: #dbaf40;
-  opacity: 1;
-  width:.3vh;
-  height:25%;
-   ${props => props.active  ? 'background-color:transparent' : 'background-color:  #dbaf40'}
-    `;
+// const Dot = styled.section`
+//   background-color: #dbaf40;
+//   opacity: 1;
+//   width:.3vh;
+//   height:25%;
+//    ${props => props.active  ? 'background-color:transparent' : 'background-color:  #dbaf40'}
+//     `;
 const HeaderBox = styled.section`
   position: fixed;
   top:20%;

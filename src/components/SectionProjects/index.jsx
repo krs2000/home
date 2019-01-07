@@ -14,8 +14,8 @@ class SectionProjects extends Component {
     };
   }
 
-  change = () => {
-    this.setState({ firstCard: !this.state.firstCard })
+  change = (type) => {
+    this.setState({ firstCard: type})
   }
 
   render() {
@@ -72,12 +72,12 @@ class SectionProjects extends Component {
         `;
 
     const ProjectRowBox = styled.div`
-        width: 85%;
+        width: 70%;
         padding:5% 5% 5% 25%;
         background: white;
         height: 100%;
         display: flex;
-        align-items:flex-start;
+        align-items:flex-end;
         flex-direction:column;
         z-index:10;
        
@@ -86,7 +86,7 @@ class SectionProjects extends Component {
 
     return (
       <Wrapper>
-        <Box><button className={this.state.firstCard && 'active'} onClick={() => this.change()}>Commercial</button><button  onClick={() => this.change()}>Personal</button></Box>
+        <Box><button className={ this.state.firstCard ? 'active': ''} onClick={() => this.change(true)}>Commercial</button><button className={ this.state.firstCard ?  '' :'active'}  onClick={() => this.change(false)}>Personal</button></Box>
         {!this.state.firstCard && <ProjectRowBox >
           <ProjectLink  page='https://cool-beer-app.herokuapp.com/'    image={Cba} title='Crafted beers app v0.1'/>
           <ProjectLink   page='https://invest-jar.herokuapp.com/'   name='Invest Jar' title='Investing app v0.1'/>

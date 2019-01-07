@@ -2,27 +2,27 @@ import React, { Component } from 'react';
 import { MenuButton, Menu } from '../';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
+import { Delayed } from '../'
 
 const  Wrapper = styled.section`
 position: fixed;
 top:2rem;
 left:5%;
-z-index:89;
+z-index:99;
 cursor: pointer;
 width: 48px;
 height: 48px;
 overflow: visible;
   `;
   const  ProgressBar = styled.div`
-  top:1rem;
-  left:calc(5% - 7px);
+  top:1.6rem;
+  left:calc(5% - 1px);
   position:fixed;
   .circle-background,
   .circle-progress {
-    fill: none;
+  fill:  none
   }
   
-
   .circle-progress {
     stroke: rgb(219, 175, 64);
     stroke-linecap: round;
@@ -38,6 +38,7 @@ class CircularProgressBar extends React.Component {
     super(props);
     this.state = {};
   }
+
 
   render() {
     // Size of the enclosing square
@@ -62,12 +63,14 @@ class CircularProgressBar extends React.Component {
             cx={this.props.sqSize / 2}
             cy={this.props.sqSize / 2}
             r={radius}
+     
             strokeWidth={`${this.props.strokeWidth}px`} />
           <circle
             className="circle-progress"
             cx={this.props.sqSize / 2}
             cy={this.props.sqSize / 2}
             r={radius}
+          
             strokeWidth={`${this.props.strokeWidth}px`}
             // Start progress marker at 12 O'Clock
             transform={`rotate(-90 ${this.props.sqSize / 2} ${this.props.sqSize / 2})`}
@@ -82,9 +85,9 @@ class CircularProgressBar extends React.Component {
   }
 }
 CircularProgressBar.defaultProps = {
-  sqSize: 80,
+  sqSize: 60,
   percentage: 25,
-  strokeWidth: 10
+  strokeWidth: 5
 };
 class Hamburger extends Component {
   constructor(props) {
@@ -110,12 +113,12 @@ class Hamburger extends Component {
   render() {
     return (
       <div >
-        <Wrapper onClick={() => this.handleMenuClick()}>
+     <Delayed waitBeforeShow={1000} ><Wrapper onClick={() => this.handleMenuClick()}>
         <CircularProgressBar percentage={this.props.active * 25}/>
         <MenuButton isOpen={this.state.menuOpen} color='white' />
         </Wrapper>
   <Menu onClick={() => this.handleLinkClick()} isOpen={this.state.menuOpen} parallax={this.props.parallax} ></Menu>
-
+</Delayed>
       </div >
     );
   }
