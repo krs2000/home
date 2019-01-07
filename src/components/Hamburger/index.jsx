@@ -6,8 +6,8 @@ import { Delayed } from '../'
 
 const  Wrapper = styled.section`
 position: fixed;
-top:2rem;
-left:5%;
+top:16px
+left:16px;
 z-index:99;
 cursor: pointer;
 width: 48px;
@@ -15,8 +15,8 @@ height: 48px;
 overflow: visible;
   `;
   const  ProgressBar = styled.div`
-  top:1.6rem;
-  left:calc(5% - 1px);
+  top:14px;
+  left:14px;
   position:fixed;
   .circle-background,
   .circle-progress {

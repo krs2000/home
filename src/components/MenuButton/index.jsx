@@ -22,7 +22,11 @@ import { Motion, spring, presets } from 'react-motion';
     
     render() {
       const style = {
-        padding: '1rem',
+        position:'fixed',
+        top:'36px',
+        left:'32px',
+        paddingLeft: '0px',
+        paddingTop: '0px',
         width: '2rem',
         height:'2rem',
         color:'#dbaf40',
@@ -53,7 +57,7 @@ import { Motion, spring, presets } from 'react-motion';
                 strokeLinejoin="round"
                >
                 <line 
-                  transform={`translate(${x * -7}, ${x * -12}) rotate(${x * 45}, 0, 30)`} 
+                  transform={`translate(${x * -9}, ${x * -12}) rotate(${x * 45}, 0, 30)`} 
                   x1="0" y1="0" x2="80" y2="0" 
                  />
                 <line 
