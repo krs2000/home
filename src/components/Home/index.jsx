@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
 import img from '../../assets/decoration.jpg';
 import Lines from '../../assets/lines.svg';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
-
+import ReactDOM from 'react-dom';
 const ParallaxStyled = styled(Parallax) `
   background:black`
 
@@ -55,6 +55,7 @@ class Home extends Component {
       active: 0
     };
     this.parralax = React.createRef();
+    this.lines = React.createRef();
     this.wrapper = React.createRef();
     this.welcome = React.createRef();
     this.blog = React.createRef();
@@ -91,6 +92,9 @@ class Home extends Component {
           this.parralax.current.scrollTo(t.scroll)
         }
       })
+      var node = ReactDOM.findDOMNode(this.lines.current);
+      node.classList.toggle('floater')
+      node.classList.toggle('floater')
     // }
   }
 
@@ -103,6 +107,8 @@ class Home extends Component {
       index++
       this.props.history.push('/#' + this.state.options[index].name);
     }
+
+
     this.setState({ active: index });
   }
 
@@ -114,7 +120,7 @@ class Home extends Component {
   render() {
     return (
       <div ref={this.wrapper} >
-        <Hamburger active={this.state.active} parralax={this.parralax} />
+        <Hamburger active={this.state.active} parralax={this.parralax}  active={this.state.active}/>
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled ref={this.parralax} pages={5}
           effect={(animation, toValue) =>
@@ -123,7 +129,7 @@ class Home extends Component {
             offset={0}
             speed={.3}
             ref={this.contact} >
-           <ParallaxImage><img src={Lines} className='floater' alt='lines' /></ParallaxImage> 
+           <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
           <Parallax.Layer
             onClick={() => this.parallax.scrollTo(1)}

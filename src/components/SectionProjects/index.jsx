@@ -88,8 +88,8 @@ class SectionProjects extends Component {
       <Wrapper>
         <Box><button className={this.state.firstCard && 'active'} onClick={() => this.change()}>Commercial</button><button  onClick={() => this.change()}>Personal</button></Box>
         {!this.state.firstCard && <ProjectRowBox >
-          <ProjectLink  page='http://www.cool-beer-app.herokuapp.com/'    image={Cba} title='Crafted beers app v0.1'/>
-          <ProjectLink   page='http://www.invest-jar.herokuapp.com/'   name='Invest Jar' title='Investing app v0.1'/>
+          <ProjectLink  page='https://cool-beer-app.herokuapp.com/'    image={Cba} title='Crafted beers app v0.1'/>
+          <ProjectLink   page='https://invest-jar.herokuapp.com/'   name='Invest Jar' title='Investing app v0.1'/>
         </ProjectRowBox>}
         {this.state.firstCard && <ProjectRowBox >
           <ProjectLink page='http://www.offbeatmotion.tv/'  image={Ob} title='Filming Agency'/>

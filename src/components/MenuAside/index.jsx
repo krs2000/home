@@ -10,19 +10,7 @@ color: #dbaf40;
 overflow: visible;
 width:1rem;
   `;
-const ProgressBar = styled.section`
-  position: fixed;
-  top:0rem;
-  right:0px;
-  z-index:10;
-  cursor: pointer;
-  color: #dbaf40;
-  overflow: visible;
-  height:100vh;
-  display:flex;
- flex-direction:column;
 
-    `;
 const Dot = styled.section`
   background-color: #dbaf40;
   opacity: 1;
@@ -55,7 +43,6 @@ class MenuAside extends Component {
   render() {
     return (
       <Wrapper><HeaderBox>{this.props.options.map(x => this.props.active === x.index && x.index > 0 && <Delayed  key={`index-${x.index}`} waitBeforeShow={500}> <Header rotate={true} text={x.name} color={this.props.active < 3 ? 'black' : 'white'} /></Delayed>)}</HeaderBox>
-        <ProgressBar>{this.props.options.map(x =>x.index > 0 && <Dot key={`index-${x.index}`}active={this.props.active >= x.index && this.props.active !== 0} />)} </ProgressBar>
       </Wrapper>
     );
   }
