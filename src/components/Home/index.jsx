@@ -157,13 +157,16 @@ class Home extends Component {
             ref={this.contact} >
             <SectionContact />  
           </Parallax.Layer>
-        </ParallaxStyled>
-       { this.state.active === 4 && <MessengerCustomerChat
+    
+       { this.props.location.hash === '#contact' && <MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
-          />}
+          />
+          }
+        </ParallaxStyled>
+     
       </div >
     );
   }
