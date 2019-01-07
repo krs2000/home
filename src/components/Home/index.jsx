@@ -6,9 +6,10 @@ import Parallax from 'react-springy-parallax'
 import Animated from 'animated/lib/targets/react-dom'
 import Easing from 'animated/lib/Easing';
 import { withRouter } from 'react-router-dom';
-import Waypoint from 'react-waypoint';
+// import Waypoint from 'react-waypoint';
 import img from '../../assets/decoration.jpg';
-import Lines from '../../assets/lines.svg'
+import Lines from '../../assets/lines.svg';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const ParallaxStyled = styled(Parallax) `
   background:black`
@@ -121,7 +122,7 @@ class Home extends Component {
             offset={0}
             speed={.3}
             ref={this.contact} >
-           <ParallaxImage><img src={Lines} /></ParallaxImage> 
+           <ParallaxImage><img src={Lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
           <Parallax.Layer
             onClick={() => this.parallax.scrollTo(1)}
@@ -156,6 +157,12 @@ class Home extends Component {
             <SectionContact />
           </Parallax.Layer>
         </ParallaxStyled>
+        <MessengerCustomerChat
+            pageId="410114706194481"
+            appId="2201094929903504"
+            htmlRef={window.location.pathname}
+            themeColor="#dbaf40"
+          />
       </div >
     );
   }

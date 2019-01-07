@@ -9,7 +9,7 @@ import { Motion, spring, presets } from 'react-motion';
       super()
       
       this.state = {
-        // isOpen: true
+        isOpen: false
       }
     }
     

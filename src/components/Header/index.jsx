@@ -22,7 +22,7 @@ const Header  = (props) => {
   // }
   //   `;
 
-  return (<Wrapper> <Typed className={props.rotate } 
+  return (<Wrapper> <Typed 
     strings={[props.text]} 
     typeSpeed={100} 
     showCursor={false}

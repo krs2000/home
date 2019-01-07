@@ -5,35 +5,54 @@ import styled from 'styled-components';
 const ProjectLink = (props) => {
 
   const Wrapper = styled.section`
-  height:20%;
-  width:100%;
-  border: 1px solid red;
+  width:85%;
+  display:inline-block;
+   padding:0.2vh 3vh;
+   border:0.16em solid #FFFFFF;
+   margin:2vh 0;
+   box-sizing: border-box;
+   text-decoration:none;
+ 
+   font-family:'Roboto',sans-serif;
+   font-weight:400;
+   color:#FFFFFF;
+   text-align:center;
+   transition: all 0.15s;
+  box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
+&:hover{
+box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+}
   a {
     text-decoration: none;
     color: #696969 !important;
+    background-color:pink;
  
-    h3 {
-        background: transparent;
-        display: flex;
-        margin:0 !important,
-        padding:0;
-        justify-content: center;
-        align-items: center;
-        font-weight: 300;
+ div{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+     
+    }
+    span{
+  
+      font-size:1.5rem;
     }
     img{
-      transform: scale(.3);
+      max-height:8vh;
     }
+
 }
     `;
 
-  return (<Wrapper>
-    <a href='https://cool-beer-app.herokuapp.com/' >
-      {/* <div>
+  return (<Wrapper >
+    <a href={props.page} target="_blank"  >
+      <div>
         {props.image && <img src={props.image} alt='app icon' />}
         {props.name && <span>{props.name}</span>}
-      </div> */}
-      <span>{props.title}</span>
+      </div>
+      <div>
+      <p>{props.title}</p>
+      </div>
     </a>
   </Wrapper>)
 }

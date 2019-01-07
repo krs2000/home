@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import img from '../../assets/decoration.jpg';
 import {Slogan} from '../'
 
 const Wrapper = styled.section`

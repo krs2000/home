@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MenuButton, Menu } from '../';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const  Wrapper = styled.section`
 position: fixed;
@@ -19,7 +20,11 @@ class Hamburger extends Component {
       menuOpen: false,
     };
   }
-
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.location !== prevProps.location){
+      this.setState({ menuOpen: false });
+    }
+  }
 
   handleMenuClick = () => {
     this.setState({ menuOpen: !this.state.menuOpen });
@@ -44,4 +49,4 @@ class Hamburger extends Component {
 
 
 
-export default Hamburger;
+export default withRouter(Hamburger);

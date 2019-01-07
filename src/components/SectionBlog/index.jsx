@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import img from '../../assets/decoration.jpg';
 import Swipeable from 'react-swipeable'
-import { Header } from '../'
+
 
 const Wrapper = styled.section`
 height: 100vh;

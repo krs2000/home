@@ -53,12 +53,9 @@ class MenuAside extends Component {
 
 
   render() {
-    let Title;
-    let Color;
-
     return (
-      <Wrapper><HeaderBox>{this.props.options.map(x => this.props.active === x.index && x.index > 0 && <Delayed waitBeforeShow={500}> <Header rotate={true} text={x.name} color={this.props.active < 3 ? 'black' : 'white'} /></Delayed>)}</HeaderBox>
-        <ProgressBar>{this.props.options.map(x =>x.index > 0 && <Dot active={this.props.active >= x.index && this.props.active !== 0} />)} </ProgressBar>
+      <Wrapper><HeaderBox>{this.props.options.map(x => this.props.active === x.index && x.index > 0 && <Delayed  key={`index-${x.index}`} waitBeforeShow={500}> <Header rotate={true} text={x.name} color={this.props.active < 3 ? 'black' : 'white'} /></Delayed>)}</HeaderBox>
+        <ProgressBar>{this.props.options.map(x =>x.index > 0 && <Dot key={`index-${x.index}`}active={this.props.active >= x.index && this.props.active !== 0} />)} </ProgressBar>
       </Wrapper>
     );
   }
