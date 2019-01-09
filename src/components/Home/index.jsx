@@ -13,6 +13,7 @@ import color from '../../constants.js'
 import MessengerCustomerChat from 'react-messenger-customer-chat'
 import ReactDOM from 'react-dom'
 import Swipe from 'react-easy-swipe'
+import IsScrolling from 'react-is-scrolling';
 const ParallaxStyled = styled(Parallax) `
 
   background:${color.dark}`
@@ -100,21 +101,26 @@ class Home extends Component {
   }
 
     handleScroll = (e) => {
-      if(e.type === 'mousewheel'){
       e.stopPropagation();
+      e.preventDefault();
+             
+      if(e.type === 'mousewheel' ){
     let index = this.state.active;
     if (index > 0 && e.deltaY < 0 ) {
       index--
     } else if ( index < 4 && e.deltaY > 0) {
       index++
     }
+     
     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
+     
    }
   }
 
     onSwipeMove=(position, e) =>{
       e.stopPropagation();
           e.preventDefault();
+
       let index = this.state.active;
     if (index > 0 && position.y  > 0) {
       index--
@@ -122,7 +128,7 @@ class Home extends Component {
     } else if ( index < 4 && position.y  < 0) {
       index++
       // this.props.history.push('/#' + this.state.options[index].name);
-    }
+    }   
      this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
   }
 
@@ -143,7 +149,7 @@ class Home extends Component {
         <ParallaxStyled 
          ref={this.parralax} pages={5}
           effect={(animation, toValue) =>
-              Animated.timing(animation, { toValue, duration: 700, easing: Easing.linear })}>
+              Animated.timing(animation, { toValue, duration: 1200, easing: Easing.linear })}>
              <Parallax.Layer       
             offset={0}
             speed={.3}      
@@ -158,25 +164,25 @@ class Home extends Component {
           </Parallax.Layer>
           <Parallax.Layer
             offset={1}
-            speed={1}
+            speed={0}
             ref={this.blog} >         
             <SectionBlog articles={this.state.articles} />
           </Parallax.Layer>
           <Parallax.Layer
             offset={2}
-            speed={1}
+            speed={0}
             ref={this.projects}>
             <SectionProjects />
           </Parallax.Layer> 
           <Parallax.Layer
             offset={3}
-            speed={1}
+            speed={0}
             ref={this.about} >
             <SectionAbout />
           </Parallax.Layer>
           <Parallax.Layer
             offset={4}
-            speed={1}
+            speed={0}
             ref={this.contact} > 
             <SectionContact />  
           </Parallax.Layer>
@@ -197,4 +203,4 @@ class Home extends Component {
 
 
 
-export default withRouter(Home)
+export default withRouter(IsScrolling(Home))
