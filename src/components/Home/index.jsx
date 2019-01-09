@@ -104,7 +104,7 @@ class Home extends Component {
       this.state.options.forEach((t) => {
         if ( hash !== undefined && t.name === hash ) {
           this.props.history.push('/#' + this.state.options[this.state.active].name);
-          this.parralax.current.scrollTo(this.state.active)
+          // this.parralax.current.scrollTo(this.state.active)
         }
       })
       var node = ReactDOM.findDOMNode(this.lines.current)
