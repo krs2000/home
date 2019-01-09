@@ -156,7 +156,7 @@ class Home extends Component {
               Animated.timing(animation, { toValue, duration: 800, easing: Easing.linear })}>
               <Parallax.Layer       
             offset={0}
-            speed={0}      
+            speed={0.4}      
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
@@ -174,19 +174,19 @@ class Home extends Component {
           </Parallax.Layer>
           <Parallax.Layer
             offset={2}
-            speed={0.2}
+            speed={0}
             ref={this.projects}>
             <SectionProjects />
           </Parallax.Layer> 
           <Parallax.Layer
             offset={3}
-            speed={0.2}
+            speed={0}
             ref={this.about} >
             <SectionAbout />
           </Parallax.Layer>
           <Parallax.Layer
             offset={4}
-            speed={0.2}
+            speed={0}
             ref={this.contact} > 
             <SectionContact />  
           </Parallax.Layer>
