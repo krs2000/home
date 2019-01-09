@@ -70,21 +70,10 @@ class Home extends Component {
     this.prev = 0
   }
 
-  onSwipeMove=(position, e) =>{
-      let index = this.state.active;
-    if (index > 0 && position.y  > 0) {
-      index--
-      // this.props.history.push('/#' + this.state.options[index].name);
-    } else if ( index < 4 && position.y  < 0) {
-      index++
-      // this.props.history.push('/#' + this.state.options[index].name);
-    }
-     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
-  }
 
   componentWillReceiveProps(nextProps) {
     if ( nextProps.location.hash !== this.props.location.hash) {
-      // this.parralax.current.scrollTo(this.state.options.filter(x => x === nextProps.location.hash).index)
+  // this.parralax.current.scrollTo(this.state.options.filter(x => x === nextProps.location.hash).index)    
     }
   }
 
@@ -114,17 +103,30 @@ class Home extends Component {
   }
 
     handleScroll = (e) => {
-  //     if(e.type === 'mousewheel'){
-  //     e.stopPropagation();
-  //   let index = this.state.active;
-  //   if (index > 0 && e.deltaY <0 ) {
-  //     index--
-  //   } else if ( index < 4 && e.deltaY > 0) {
-  //     index++
-  //   }
-  //   this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
-  //  }
+      if(e.type === 'mousewheel'){
+      e.stopPropagation();
+    let index = this.state.active;
+    if (index > 0 && e.deltaY <0 ) {
+      index--
+    } else if ( index < 4 && e.deltaY > 0) {
+      index++
+    }
+    this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
+   }
   }
+
+    onSwipeMove=(position, e) =>{
+      let index = this.state.active;
+    if (index > 0 && position.y  > 0) {
+      index--
+      // this.props.history.push('/#' + this.state.options[index].name);
+    } else if ( index < 4 && position.y  < 0) {
+      index++
+      // this.props.history.push('/#' + this.state.options[index].name);
+    }
+     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
+  }
+
 
 
   _handleWaypointEnter = (page, index) => {
@@ -141,7 +143,7 @@ class Home extends Component {
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled 
          ref={this.parralax} pages={5}
-         scrolling={false}
+     
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 600, easing: Easing.linear })}>
              <Parallax.Layer       
