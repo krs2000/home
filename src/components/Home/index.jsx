@@ -160,7 +160,7 @@ class Home extends Component {
             offset={1}
             speed={0}
             ref={this.blog} >         
-            <SectionBlog articles={this.state.articles} />
+            {/* <SectionBlog articles={this.state.articles} /> */}
           </Parallax.Layer>
           <Parallax.Layer
             offset={2}
