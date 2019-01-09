@@ -180,16 +180,16 @@ class Home extends Component {
             ref={this.contact} > 
             <SectionContact />  
           </Parallax.Layer>
-                <Parallax.Layer
-                   offset={4}>
-       <Messanger><MessengerCustomerChat
+             
+        
+                   
+        </ParallaxStyled> 
+        {/* <Messanger><MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
-          /></Messanger>   
-                   </Parallax.Layer>       
-        </ParallaxStyled> 
+          /></Messanger>   */}
       </Swipe >
     )
   }
