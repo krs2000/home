@@ -16,7 +16,7 @@ align-items:center;
   `;
 
 const SwipeBlog = styled.section`
-  height: 70vh;
+  height: auto;
   width:60vw;
 display:flex;
 justify-content: space-around;
@@ -58,7 +58,6 @@ const returnArticles = (article) => {
 
 const SectionBlog = (props) => {
   return (<Wrapper>
-    {/* <Header text='Blog' /> */}
     {ExampleSlider(props.articles)}
   </Wrapper>)
 }
