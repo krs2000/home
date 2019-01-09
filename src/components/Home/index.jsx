@@ -158,25 +158,25 @@ class Home extends Component {
           </Parallax.Layer>
           <Parallax.Layer
             offset={1}
-            speed={0}
+            speed={.2}
             ref={this.blog} >         
-            {/* <SectionBlog articles={this.state.articles} /> */}
+            <SectionBlog articles={this.state.articles} />
           </Parallax.Layer>
           <Parallax.Layer
             offset={2}
-            speed={0}
+            speed={.2}
             ref={this.projects}>
             <SectionProjects />
           </Parallax.Layer> 
           <Parallax.Layer
             offset={3}
-            speed={0}
+            speed={.2}
             ref={this.about} >
             <SectionAbout />
           </Parallax.Layer>
           <Parallax.Layer
             offset={4}
-            speed={0}
+            speed={.2}
             ref={this.contact} > 
             <SectionContact />  
           </Parallax.Layer>
