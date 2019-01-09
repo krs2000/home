@@ -14,11 +14,11 @@ import color from '../../constants.js'
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import ReactDOM from 'react-dom';
 const ParallaxStyled = styled(Parallax) `
+
   background:${color.dark}`
 
   const ParallaxImage = styled.div `
 z-index:5`
-
 
 
 class Home extends Component {
@@ -101,17 +101,17 @@ class Home extends Component {
   }
 
   handleScroll = (e) => {
+
     let index = this.state.active;
-    if (e.deltaY < 0 && index > 0) {
-      index--
-      this.props.history.push('/#' + this.state.options[index].name);
+// console.log(h)
+    // if (index > 0 ) {
+    //   index--
+    //   this.props.history.push('/#' + this.state.options[index].name);
      
-    } else if (e.deltaY > 0 && index < 4) {
-      index++
-      this.props.history.push('/#' + this.state.options[index].name);
-    }
-
-
+    // } else if ( index < 4 ) {
+    //   index++
+    //   this.props.history.push('/#' + this.state.options[index].name);
+    // }
     this.setState({ active: index });
   }
 
@@ -123,28 +123,26 @@ class Home extends Component {
   render() {
     const Messanger = styled.div `
     display: ${this.state.active === 4 ? 'block' : 'none'} `
-    
+
+          
+  
     return (
       <div ref={this.wrapper} >
         <Hamburger active={this.state.active} parralax={this.parralax}  />
         <MenuAside options={this.state.options} active={this.state.active} />
-        <ParallaxStyled ref={this.parralax} pages={5}
+        <ParallaxStyled 
+          
+         ref={this.parralax} pages={5}
           effect={(animation, toValue) =>
-            Animated.timing(animation, { toValue, duration: 600, easing: Easing.linear })}>
-             <Parallax.Layer
+              Animated.timing(animation, { toValue, duration: 600, easing: Easing.linear })}>
+             <Parallax.Layer       
             offset={0}
-            speed={.3}
+            speed={.3}      
             ref={this.contact} >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
           <Parallax.Layer
-            offset={2}
-            speed={.3}
-            ref={this.contact} >
-         
-          </Parallax.Layer>
-          <Parallax.Layer
-            onClick={() => this.parallax.scrollTo(1)}
+  
             offset={0}
             speed={.1}
             ref={this.welcome}>
@@ -176,7 +174,7 @@ class Home extends Component {
             <SectionContact />  
           </Parallax.Layer>
     
-       <Messanger> sdsfsdfd<MessengerCustomerChat
+       <Messanger><MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
