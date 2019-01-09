@@ -75,9 +75,11 @@ class Home extends Component {
     if (index > 0 && position.y  > 0) {
       index--
       this.props.history.push('/#' + this.state.options[index].name);
+      event.preventDefault();
     } else if ( index < 4 && position.y  < 0) {
       index++
       this.props.history.push('/#' + this.state.options[index].name);
+        event.preventDefault();
     }
     this.setState({ active: index });
   }
