@@ -145,14 +145,21 @@ class Home extends Component {
     display: ${this.state.active === 4 ? 'block' : 'none'} `
  
     return (
-      <Swipe ref={this.wrapper}     onSwipeStart={this.onSwipeStart}  onSwipeMove={this.onSwipeMove}>
+      <Swipe ref={this.wrapper}   
+      
+      onSwipeStart={this.onSwipeStart}  onSwipeMove={this.onSwipeMove}>
         <Hamburger active={this.state.active} parralax={this.parralax}  />
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled 
          ref={this.parralax} pages={5}
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 800, easing: Easing.linear })}>
-             
+              <Parallax.Layer       
+            offset={0}
+            speed={0}      
+            >
+           <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
+          </Parallax.Layer>
           <Parallax.Layer
             offset={0}
             speed={0}
@@ -167,28 +174,23 @@ class Home extends Component {
           </Parallax.Layer>
           <Parallax.Layer
             offset={2}
-            speed={0}
+            speed={0.2}
             ref={this.projects}>
             <SectionProjects />
           </Parallax.Layer> 
           <Parallax.Layer
             offset={3}
-            speed={0}
+            speed={0.2}
             ref={this.about} >
             <SectionAbout />
           </Parallax.Layer>
           <Parallax.Layer
             offset={4}
-            speed={0}
+            speed={0.2}
             ref={this.contact} > 
             <SectionContact />  
           </Parallax.Layer>
-             <Parallax.Layer       
-            offset={0}
-            speed={.3}      
-            >
-           <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
-          </Parallax.Layer>
+            
         
                    
         </ParallaxStyled> 
