@@ -115,7 +115,7 @@ class Home extends Component {
 
     handleScroll = (e) => {
       if(e.type === 'mousewheel'){
-      e.stopPropagation();
+      // e.stopPropagation();
     let index = this.state.active;
     if (index > 0 && e.deltaY <0 ) {
       index--
