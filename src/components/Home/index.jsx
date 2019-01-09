@@ -112,15 +112,16 @@ class Home extends Component {
       index++
     }
      
-    this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
-     
+    this.setState({ active: index }, ()=> {
+      this.parralax.current.scrollTo(this.state.active)
+         this.props.history.push('/#' + this.state.options[this.state.active].name)})
    }
   }
 
     onSwipeMove=(position, e) =>{
-      e.stopPropagation();
-          e.preventDefault();
-      let index = this.state.active;
+      e.stopPropagation()
+          e.preventDefault()
+      let index = this.state.active
     if (index > 0 && position.y  > 0) {
       index--
       // this.props.history.push('/#' + this.state.options[index].name);
@@ -128,9 +129,12 @@ class Home extends Component {
       index++
       // this.props.history.push('/#' + this.state.options[index].name);
     }   
-     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
+    this.setState({ active: index }, ()=> {
+      this.parralax.current.scrollTo(this.state.active)
+         this.props.history.push('/#' + this.state.options[this.state.active].name)})
+   
   }
- onSwipeStart(e) {
+ onSwipeStart=(e)=> {
     e.stopPropagation();
           e.preventDefault();
   }
