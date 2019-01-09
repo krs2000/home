@@ -79,14 +79,14 @@ class Home extends Component {
       index++
       // this.props.history.push('/#' + this.state.options[index].name);
     }
-     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(index));
+     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if ( nextProps.location !== this.state.location) {
-  //     this.setState({ location: nextProps.location, active: this.state.options.filter(x => x.route === nextProps.location.hash)[0].index })
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if ( nextProps.location.hash !== this.props.location.hash) {
+      // this.parralax.current.scrollTo(this.state.options.filter(x => x === nextProps.location.hash).index)
+    }
+  }
 
   componentDidMount() {
         window.addEventListener('DOMMouseScroll', this.handleScroll, false);
@@ -100,13 +100,13 @@ class Home extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(prevState.active !== this.state.active){
-      let hash = this.props.location.hash.replace('#', '')
-      this.state.options.forEach((t) => {
-        if ( hash !== undefined && t.name === hash ) {
+      // let hash = this.props.location.hash.replace('#', '')
+      // this.state.options.forEach((t) => {
+      //   if ( hash !== undefined && t.name === hash ) {
           this.props.history.push('/#' + this.state.options[this.state.active].name);
           // this.parralax.current.scrollTo(this.state.active)
-        }
-      })
+      //   }
+      // })
       var node = ReactDOM.findDOMNode(this.lines.current)
       node.classList.remove('floater')
      setTimeout(()=> node.classList.add('floater'),1000)
@@ -114,16 +114,16 @@ class Home extends Component {
   }
 
     handleScroll = (e) => {
-      if(e.type === 'mousewheel'){
-      // e.stopPropagation();
-    let index = this.state.active;
-    if (index > 0 && e.deltaY <0 ) {
-      index--
-    } else if ( index < 4 && e.deltaY > 0) {
-      index++
-    }
-    this.setState({ active: index }, ()=> this.parralax.current.scrollTo(index));
-   }
+  //     if(e.type === 'mousewheel'){
+  //     e.stopPropagation();
+  //   let index = this.state.active;
+  //   if (index > 0 && e.deltaY <0 ) {
+  //     index--
+  //   } else if ( index < 4 && e.deltaY > 0) {
+  //     index++
+  //   }
+  //   this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
+  //  }
   }
 
 
