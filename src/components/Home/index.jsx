@@ -90,7 +90,7 @@ class Home extends Component {
 
   componentDidMount() {
         window.addEventListener('DOMMouseScroll', this.handleScroll, false);
-    window.onmousewheel =   window.ontouchmove = document.onmousewheel = this.handleScroll;
+    window.onmousewheel =   document.onmousewheel = this.handleScroll;
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
         // this.setState({ articles: res.data.articles,  active: this.props.location.hash && this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
