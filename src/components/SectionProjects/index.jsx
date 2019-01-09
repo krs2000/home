@@ -33,7 +33,7 @@ class SectionProjects extends Component {
       const Box= styled.div`
    
       background-size: cover;
-      height: 30;
+      height: 30vh;
       min-height:88px;
       display: flex;
       flex-direction: column;

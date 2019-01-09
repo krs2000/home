@@ -10,7 +10,6 @@ import Waypoint from 'react-waypoint'
 import img from '../../assets/decoration.jpg'
 import Lines from '../../assets/lines.svg'
 import color from '../../constants.js'
-import IsScrolling from 'react-is-scrolling'
 import MessengerCustomerChat from 'react-messenger-customer-chat'
 import ReactDOM from 'react-dom'
 import Swipe from 'react-easy-swipe'
@@ -82,8 +81,8 @@ class Home extends Component {
     window.onmousewheel =   document.onmousewheel = this.handleScroll;
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
-        // this.setState({ articles: res.data.articles,  active: this.props.location.hash && this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
-             this.setState({ articles: res.data.articles})
+        this.setState({ articles: res.data.articles,  active: this.props.location.hash && this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
+            //  this.setState({ articles: res.data.articles})
       })
   }
 
@@ -116,6 +115,7 @@ class Home extends Component {
   }
 
     onSwipeMove=(position, e) =>{
+   
       let index = this.state.active;
     if (index > 0 && position.y  > 0) {
       index--
@@ -136,20 +136,18 @@ class Home extends Component {
   render() {
     const Messanger = styled.div `
     display: ${this.state.active === 4 ? 'block' : 'none'} `
-       const { isScrolling } = this.props;
+ 
     return (
       <Swipe ref={this.wrapper}  onSwipeMove={this.onSwipeMove}>
         <Hamburger active={this.state.active} parralax={this.parralax}  />
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled 
          ref={this.parralax} pages={5}
-     
           effect={(animation, toValue) =>
-              Animated.timing(animation, { toValue, duration: 600, easing: Easing.linear })}>
+              Animated.timing(animation, { toValue, duration: 700, easing: Easing.linear })}>
              <Parallax.Layer       
             offset={0}
             speed={.3}      
-         
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
@@ -158,50 +156,29 @@ class Home extends Component {
             speed={0}
             ref={this.welcome}>
             <SectionWelcome />
-                                             {/* <Waypoint
-  onEnter={()=>this._handleWaypointEnter('welcome',0)}
-  onLeave={this._handleWaypointLeave}
-/> */}
           </Parallax.Layer>
           <Parallax.Layer
             offset={1}
             speed={0}
-            ref={this.blog} >
-            
+            ref={this.blog} >         
             <SectionBlog articles={this.state.articles} />
-                 {/* <Waypoint
-  onEnter={()=>this._handleWaypointEnter('blog',1)}
-  onLeave={this._handleWaypointLeave}
-/> */}
           </Parallax.Layer>
           <Parallax.Layer
             offset={2}
             speed={0}
             ref={this.projects}>
             <SectionProjects />
-         {/* <Waypoint
-  onEnter={()=>this._handleWaypointEnter('projects',2)}
-  onLeave={this._handleWaypointLeave}
-/> */}
           </Parallax.Layer> 
           <Parallax.Layer
             offset={3}
             speed={0}
             ref={this.about} >
             <SectionAbout />
-              {/* <Waypoint
-  onEnter={()=>this._handleWaypointEnter('about',3)}
-  onLeave={this._handleWaypointLeave}
-/> */}
           </Parallax.Layer>
           <Parallax.Layer
             offset={4}
             speed={0}
             ref={this.contact} > 
-                  {/* <Waypoint
-  onEnter={()=>this._handleWaypointEnter('contact',4)}
-  onLeave={this._handleWaypointLeave}
-/> */}
             <SectionContact />  
           </Parallax.Layer>
                 <Parallax.Layer
@@ -221,4 +198,4 @@ class Home extends Component {
 
 
 
-export default withRouter(IsScrolling(Home))
+export default withRouter(Home)
