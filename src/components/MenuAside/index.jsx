@@ -22,7 +22,7 @@ width:1rem;
 const HeaderBox = styled.section`
   position: fixed;
   top:20%;
-  left:calc(20px + 5%);
+  left:calc(16px + 2%);
   z-index:1;
   cursor: pointer;
   color: ${color.primary};

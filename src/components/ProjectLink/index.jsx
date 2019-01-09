@@ -7,23 +7,27 @@ const ProjectLink = (props) => {
   const Wrapper = styled.section`
   width:80%;
   display:inline-block;
-   padding:0.2vh 3vh;
+   padding:0.2vh 1vh;
    border:0.16em solid ${color.light};
    margin:2vh 0.5em;
    box-sizing: border-box;
    text-decoration:none;
  max-width: 700px;
-
    font-family:'Roboto',sans-serif;
-   font-weight:400;
+   font-weight:900;
    color:${color.light};
    text-align:center;
    transition: all 0.15s;
   box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
+  p{
+    margin:auto;
+     font-weight:300;
+  }
 &:hover{
 box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
 a p{
   font-weight:bold;
+  margin:0;
 }
 }
   a {
@@ -39,7 +43,7 @@ a p{
     }
     span{
   
-      font-size:1.5rem;
+      font-size:1.5em;
     }
     img{
       max-height:8vh;

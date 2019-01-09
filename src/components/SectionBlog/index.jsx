@@ -22,6 +22,7 @@ display:flex;
 justify-content: space-around;
 img{
   max-width:70vw;
+  max-height:40vh;
 }
     `;
 const swipingLeft = () => {

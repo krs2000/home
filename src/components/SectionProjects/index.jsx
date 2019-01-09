@@ -33,7 +33,8 @@ class SectionProjects extends Component {
       const Box= styled.div`
    
       background-size: cover;
-      height: 30vh;
+      height: 30;
+      min-height:88px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -42,19 +43,21 @@ class SectionProjects extends Component {
       button{
         width:50%;
         display:inline-block;
-         padding:0.5em 3em;
+         padding:auto 3vw;
          border:0.16em solid ${color.light};
          margin:.5em;
          box-sizing: border-box;
          text-decoration:none;
          text-transform:uppercase;
          font-family:'Roboto',sans-serif;
-         font-weight:400;
+         font-size:1em;
+
          color: ${color.light};
          text-align:center;
          transition: all 0.15s;
         background:none;
         cursor:pointer;
+    
         &:focus{
           outline: none;
           color: ${color.primary};

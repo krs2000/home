@@ -101,11 +101,10 @@ class Home extends Component {
 
   handleScroll = (e) => {
     let index = this.state.active;
- 
- 
     if (e.deltaY < 0 && index > 0) {
       index--
       this.props.history.push('/#' + this.state.options[index].name);
+     
     } else if (e.deltaY > 0 && index < 4) {
       index++
       this.props.history.push('/#' + this.state.options[index].name);
