@@ -70,59 +70,60 @@ class Home extends Component {
     this.prev = 0
   }
 
-  onSwipeMove=(position, event) =>{
+  onSwipeMove=(position, e) =>{
       let index = this.state.active;
     if (index > 0 && position.y  > 0) {
       index--
-      this.props.history.push('/#' + this.state.options[index].name);
-      event.preventDefault();
+      // this.props.history.push('/#' + this.state.options[index].name);
     } else if ( index < 4 && position.y  < 0) {
       index++
-      this.props.history.push('/#' + this.state.options[index].name);
-        event.preventDefault();
+      // this.props.history.push('/#' + this.state.options[index].name);
     }
-    this.setState({ active: index });
+     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(index));
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ( nextProps.location !== this.state.location) {
-      this.setState({ location: nextProps.location, active: this.state.options.filter(x => x.route === nextProps.location.hash)[0].index })
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if ( nextProps.location !== this.state.location) {
+  //     this.setState({ location: nextProps.location, active: this.state.options.filter(x => x.route === nextProps.location.hash)[0].index })
+  //   }
+  // }
 
   componentDidMount() {
         window.addEventListener('DOMMouseScroll', this.handleScroll, false);
     window.onmousewheel =   window.ontouchmove = document.onmousewheel = this.handleScroll;
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
-        this.setState({ articles: res.data.articles,  active: this.props.location.hash && this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
+        // this.setState({ articles: res.data.articles,  active: this.props.location.hash && this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
+             this.setState({ articles: res.data.articles})
       })
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // if(prevState.active !== this.state.active){
+    if(prevState.active !== this.state.active){
       let hash = this.props.location.hash.replace('#', '')
       this.state.options.forEach((t) => {
         if ( hash !== undefined && t.name === hash ) {
-          this.parralax.current.scrollTo(t.scroll)
+          this.props.history.push('/#' + this.state.options[this.state.active].name);
+          this.parralax.current.scrollTo(this.state.active)
         }
       })
       var node = ReactDOM.findDOMNode(this.lines.current)
       node.classList.remove('floater')
      setTimeout(()=> node.classList.add('floater'),1000)
-  // }
+  }
   }
 
     handleScroll = (e) => {
+      if(e.type === 'mousewheel'){
+      e.stopPropagation();
     let index = this.state.active;
     if (index > 0 && e.deltaY <0 ) {
       index--
-      this.props.history.push('/#' + this.state.options[index].name);
     } else if ( index < 4 && e.deltaY > 0) {
       index++
-      this.props.history.push('/#' + this.state.options[index].name);
     }
-    this.setState({ active: index });
+    this.setState({ active: index }, ()=> this.parralax.current.scrollTo(index));
+   }
   }
 
 
@@ -140,6 +141,7 @@ class Home extends Component {
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled 
          ref={this.parralax} pages={5}
+         scrolling={false}
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 600, easing: Easing.linear })}>
              <Parallax.Layer       
@@ -154,10 +156,10 @@ class Home extends Component {
             speed={.1}
             ref={this.welcome}>
             <SectionWelcome />
-                                             <Waypoint
+                                             {/* <Waypoint
   onEnter={()=>this._handleWaypointEnter('welcome',0)}
   onLeave={this._handleWaypointLeave}
-/>
+/> */}
           </Parallax.Layer>
           <Parallax.Layer
             offset={1}
@@ -165,39 +167,39 @@ class Home extends Component {
             ref={this.blog} >
             
             <SectionBlog articles={this.state.articles} />
-                 <Waypoint
+                 {/* <Waypoint
   onEnter={()=>this._handleWaypointEnter('blog',1)}
   onLeave={this._handleWaypointLeave}
-/>
+/> */}
           </Parallax.Layer>
           <Parallax.Layer
             offset={2}
             speed={0}
             ref={this.projects}>
             <SectionProjects />
-         <Waypoint
+         {/* <Waypoint
   onEnter={()=>this._handleWaypointEnter('projects',2)}
   onLeave={this._handleWaypointLeave}
-/>
+/> */}
           </Parallax.Layer> 
           <Parallax.Layer
             offset={3}
             speed={0.1}
             ref={this.about} >
             <SectionAbout />
-              <Waypoint
+              {/* <Waypoint
   onEnter={()=>this._handleWaypointEnter('about',3)}
   onLeave={this._handleWaypointLeave}
-/>
+/> */}
           </Parallax.Layer>
           <Parallax.Layer
             offset={4}
             speed={.1}
             ref={this.contact} > 
-                  <Waypoint
+                  {/* <Waypoint
   onEnter={()=>this._handleWaypointEnter('contact',4)}
   onLeave={this._handleWaypointLeave}
-/>
+/> */}
             <SectionContact />  
           </Parallax.Layer>
        <Messanger><MessengerCustomerChat
