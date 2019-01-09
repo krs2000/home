@@ -20,6 +20,7 @@ const ParallaxStyled = styled(Parallax) `
 z-index:5`
 
 
+
 class Home extends Component {
 
   constructor(props) {
@@ -72,7 +73,7 @@ class Home extends Component {
 
   componentWillReceiveProps(nextProps) {
 
-    if (nextProps.location !== this.state.location) {
+    if ( nextProps.location !== this.state.location) {
       this.setState({ location: nextProps.location, active: this.state.options.filter(x => x.route === nextProps.location.hash)[0].index });
     }
   }
@@ -89,7 +90,7 @@ class Home extends Component {
   componentDidUpdate(prevProps, prevState) {
       let hash = this.props.location.hash.replace('#', '');
       this.state.options.forEach((t) => {
-        if (t.name === hash) {
+        if ( hash !== undefined && t.name === hash ) {
           this.parralax.current.scrollTo(t.scroll)
         }
       })
@@ -120,7 +121,9 @@ class Home extends Component {
   }
 
   render() {
- 
+    const Messanger = styled.div `
+    display: ${this.state.active === 4 ? 'block' : 'none'} `
+    
     return (
       <div ref={this.wrapper} >
         <Hamburger active={this.state.active} parralax={this.parralax}  />
@@ -173,13 +176,13 @@ class Home extends Component {
             <SectionContact />  
           </Parallax.Layer>
     
-       { this.props.location.hash === '#contact' ? <MessengerCustomerChat
+       <Messanger> sdsfsdfd<MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
-          /> : ''
-          }
+          /></Messanger> 
+          
         </ParallaxStyled>
      
       </div >
