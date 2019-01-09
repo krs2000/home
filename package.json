@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-easy-swipe": "0.0.17",
     "react-fullpage": "^0.1.19",
     "react-is-scrolling": "^1.0.1",
     "react-messenger-customer-chat": "^0.7.2",
