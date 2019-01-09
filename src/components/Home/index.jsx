@@ -91,7 +91,7 @@ class Home extends Component {
       // this.state.options.forEach((t) => {
       //   if ( hash !== undefined && t.name === hash ) {
           this.props.history.push('/#' + this.state.options[this.state.active].name);
-          // this.parralax.current.scrollTo(this.state.active)
+          this.parralax.current.scrollTo(this.state.active)
       //   }
       // })
       var node = ReactDOM.findDOMNode(this.lines.current)
@@ -112,7 +112,7 @@ class Home extends Component {
       index++
     }
      
-    this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
+    this.setState({ active: index });
      
    }
   }
@@ -120,7 +120,6 @@ class Home extends Component {
     onSwipeMove=(position, e) =>{
       e.stopPropagation();
           e.preventDefault();
-
       let index = this.state.active;
     if (index > 0 && position.y  > 0) {
       index--
@@ -129,7 +128,7 @@ class Home extends Component {
       index++
       // this.props.history.push('/#' + this.state.options[index].name);
     }   
-     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
+     this.setState({ active: index });
   }
  onSwipeStart(e) {
     e.stopPropagation();
@@ -185,7 +184,7 @@ class Home extends Component {
             <SectionContact />  
           </Parallax.Layer>
              <Parallax.Layer       
-            offset={-.3}
+            offset={-.1}
             speed={.3}      
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
@@ -193,12 +192,12 @@ class Home extends Component {
         
                    
         </ParallaxStyled> 
-        {/* <Messanger><MessengerCustomerChat
+        <Messanger><MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
-          /></Messanger>   */}
+          /></Messanger>  
       </Swipe >
     )
   }
