@@ -65,8 +65,6 @@ class Home extends Component {
     this.projects = React.createRef()
     this.about = React.createRef()
     this.contact = React.createRef()
-    this.scroll = false
-    this.prev = 0
   }
 
 
@@ -105,7 +103,7 @@ class Home extends Component {
       if(e.type === 'mousewheel'){
       e.stopPropagation();
     let index = this.state.active;
-    if (index > 0 && e.deltaY <0 ) {
+    if (index > 0 && e.deltaY < 0 ) {
       index--
     } else if ( index < 4 && e.deltaY > 0) {
       index++
@@ -115,7 +113,8 @@ class Home extends Component {
   }
 
     onSwipeMove=(position, e) =>{
-   
+      e.stopPropagation();
+          e.preventDefault();
       let index = this.state.active;
     if (index > 0 && position.y  > 0) {
       index--
