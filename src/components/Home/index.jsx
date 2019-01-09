@@ -90,7 +90,7 @@ class Home extends Component {
       // let hash = this.props.location.hash.replace('#', '')
       // this.state.options.forEach((t) => {
       //   if ( hash !== undefined && t.name === hash ) {
-          this.props.history.push('/#' + this.state.options[this.state.active].name);
+          // this.props.history.push('/#' + this.state.options[this.state.active].name);
           this.parralax.current.scrollTo(this.state.active)
       //   }
       // })
@@ -102,7 +102,7 @@ class Home extends Component {
 
     handleScroll = (e) => {
       e.stopPropagation();
-      e.preventDefault();
+      // e.preventDefault();
              
       if(e.type === 'mousewheel' ){
     let index = this.state.active;
@@ -112,7 +112,7 @@ class Home extends Component {
       index++
     }
      
-    this.setState({ active: index });
+    this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
      
    }
   }
@@ -128,7 +128,7 @@ class Home extends Component {
       index++
       // this.props.history.push('/#' + this.state.options[index].name);
     }   
-     this.setState({ active: index });
+     this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
   }
  onSwipeStart(e) {
     e.stopPropagation();
@@ -184,7 +184,7 @@ class Home extends Component {
             <SectionContact />  
           </Parallax.Layer>
              <Parallax.Layer       
-            offset={-.1}
+            offset={0}
             speed={.3}      
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
