@@ -146,14 +146,14 @@ class Home extends Component {
               Animated.timing(animation, { toValue, duration: 600, easing: Easing.linear })}>
              <Parallax.Layer       
             offset={0}
-            speed={.3}      
+            speed={0}      
             ref={this.contact} 
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
           <Parallax.Layer
             offset={0}
-            speed={.1}
+            speed={0}
             ref={this.welcome}>
             <SectionWelcome />
                                              {/* <Waypoint
