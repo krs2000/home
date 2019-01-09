@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import color from '../../constants.js'
 
 const ProjectLink = (props) => {
 
@@ -8,7 +8,7 @@ const ProjectLink = (props) => {
   width:80%;
   display:inline-block;
    padding:0.2vh 3vh;
-   border:0.16em solid #FFFFFF;
+   border:0.16em solid ${color.light};
    margin:2vh 0.5em;
    box-sizing: border-box;
    text-decoration:none;
@@ -16,7 +16,7 @@ const ProjectLink = (props) => {
 
    font-family:'Roboto',sans-serif;
    font-weight:400;
-   color:#FFFFFF;
+   color:${color.light};
    text-align:center;
    transition: all 0.15s;
   box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);

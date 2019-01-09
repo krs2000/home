@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 // import styled from 'styled-components';
 import { Motion, spring, presets } from 'react-motion';
-
+import color from '../../constants.js'
 
 
   class MenuButton extends Component {
@@ -29,7 +29,7 @@ import { Motion, spring, presets } from 'react-motion';
         paddingTop: '0px',
         width: '2rem',
         height:'2rem',
-        color:'#dbaf40',
+        color: color.primary,
         overflow: 'visible',
         WebkitTapHighlightColor: "rgba(0,0,0,0)",
         ZIndex: 98

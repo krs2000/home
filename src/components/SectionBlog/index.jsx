@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import img from '../../assets/decoration.jpg';
 import Swipeable from 'react-swipeable'
-
+import color from '../../constants.js'
 
 const Wrapper = styled.section`
 height: 100vh;
 width:100%;
 padding-left:10%;
-background: white;
+background: ${color.light};
 position: relative;
 display:flex;
 justify-content:center;

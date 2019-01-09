@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Delayed } from '../'
+import color from '../../constants.js'
 
 const HomepageTextBox = styled.section`
       width: 300px;
       height: 300px;
       ::first-letter {
           font-weight: 600;
-          color: #dbaf40;
+          color: ${color.primary};
           text-transform: uppercase;}
   `;
 
@@ -21,7 +22,7 @@ const Wrapper = styled.section`
   font-weight: 900;
   letter-spacing:.4rem;
   font-family: Roboto;
-  color: white;
+  color:  ${color.light};
   display: flex;
   flex-direction: column;
   align-items: center;

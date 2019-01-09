@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import color from '../../constants.js'
 
 
 
@@ -10,19 +10,19 @@ const SectionAbout = (props) => {
 height: 100vh;
 width:100%;
 position: relative;
-color:white;
+color: ${color.light};
 overflow: hidden;
 padding:25% 0 0 25%;
 div{
   width:70%;
   h3{
-    
+    color: ${color.light};
     font-size:2.5vh;
     text-align:start;
     margin:1vh 0 .1vh 0;
   }
   span{
-    color: #dbaf40;
+    color: ${color.primary};
     font-size:2.2vh;
     width:70%;
     margin:0.1vh 0 1vh 0;

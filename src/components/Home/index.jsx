@@ -9,11 +9,12 @@ import { withRouter } from 'react-router-dom';
 // import Waypoint from 'react-waypoint';
 import img from '../../assets/decoration.jpg';
 import Lines from '../../assets/lines.svg';
+import color from '../../constants.js'
 
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import ReactDOM from 'react-dom';
 const ParallaxStyled = styled(Parallax) `
-  background:black`
+  background:${color.dark}`
 
   const ParallaxImage = styled.div `
 z-index:5`

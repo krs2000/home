@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Delayed } from '../'
 import { Header } from '../'
+import color from '../../constants.js'
 const Wrapper = styled.section`
 position: fixed;
 z-index:2;
 cursor: pointer;
-color: #dbaf40;
+color: ${color.primary};
 overflow: visible;
 width:1rem;
   `;
@@ -24,7 +25,7 @@ const HeaderBox = styled.section`
   left:calc(20px + 5%);
   z-index:1;
   cursor: pointer;
-  color: #dbaf40;
+  color: ${color.primary};
   overflow: visible;
   width:1rem;
     `;
@@ -42,7 +43,7 @@ class MenuAside extends Component {
 
   render() {
     return (
-      <Wrapper><HeaderBox>{this.props.options.map(x => this.props.active === x.index && x.index > 0 && <Delayed  key={`index-${x.index}`} waitBeforeShow={500}> <Header rotate={true} text={x.name} color={this.props.active < 3 ? 'black' : 'white'} /></Delayed>)}</HeaderBox>
+      <Wrapper><HeaderBox>{this.props.options.map(x => this.props.active === x.index && x.index > 0 && <Delayed  key={`index-${x.index}`} waitBeforeShow={500}> <Header rotate={true} text={x.name} color={this.props.active < 3 ? color.dark : color.light} /></Delayed>)}</HeaderBox>
       </Wrapper>
     );
   }

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Typed from 'react-typed';
+import color from '../../constants.js'
 
 const Header  = (props) => {
   
   const  Wrapper = styled.section`
-  color: ${ props.color ?  props.color : 'black' };
+  color: ${ props.color ?  props.color : color.dark };
   letter-spacing:1rem;
   text-align:center;
   z-index:99;

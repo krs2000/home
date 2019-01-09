@@ -4,7 +4,7 @@ import { ProjectLink } from '../'
 import Cba from '../../assets/cba.png'
 import Ob from '../../assets/ob.png'
 import Inwedo from '../../assets/inwedo.png'
-
+import color from '../../constants.js'
 class SectionProjects extends Component {
 
   constructor(props) {
@@ -43,30 +43,30 @@ class SectionProjects extends Component {
         width:50%;
         display:inline-block;
          padding:0.5em 3em;
-         border:0.16em solid #FFFFFF;
+         border:0.16em solid ${color.light};
          margin:.5em;
          box-sizing: border-box;
          text-decoration:none;
          text-transform:uppercase;
          font-family:'Roboto',sans-serif;
          font-weight:400;
-         color:#FFFFFF;
+         color: ${color.light};
          text-align:center;
          transition: all 0.15s;
         background:none;
         cursor:pointer;
         &:focus{
           outline: none;
-          color:rgb(219, 175, 64);
+          color: ${color.primary};
         }
         &:hover{
-           border-color:rgb(219, 175, 64);
-          color:rgb(219, 175, 64);
+           border-color:${color.primary};
+          color:${color.primary};
           }
 
           &.active{
-             border-color:rgb(219, 175, 64);
-            color:rgb(219, 175, 64);
+             border-color:${color.primary};
+            color:${color.primary};
           }
       }
         `;
@@ -74,7 +74,7 @@ class SectionProjects extends Component {
     const ProjectRowBox = styled.div`
         width: 70%;
         padding:5% 5% 5% 25%;
-        background: white;
+        background: ${color.light};
         height: 100%;
         display: flex;
         align-items:flex-end;

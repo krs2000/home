@@ -2,13 +2,13 @@ import React ,{Component} from 'react';
 import styled from 'styled-components';
 import LinkedIn from '../../assets/Linkedin.svg'
 import Email from '../../assets/Email.svg'
-
+import color from '../../constants.js'
 
 const Wrapper = styled.section`
 height: 100vh;
 width:100%;
 position: relative;
-color:white;
+color: ${color.light};
   article{
     margin:30% 5% 5% 30%;
     width:65%;
@@ -18,7 +18,7 @@ color:white;
           ::first-letter {
             font-size:4.4vh;
           font-weight: 600;
-          color: #dbaf40;
+          color: ${color.primary};
           text-transform: uppercase;
              }  
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter} from 'react-router-dom';
-
+import color from '../../constants.js'
 
 
 const Item = styled.div`
 
- background:black;
+ background:${color.dark};
  height: 2rem;
  width: 100%;
  height:10vh;
@@ -16,7 +16,7 @@ cursor:pointer;
  font-weight:400;
  letter-spacing:.3rem;
  transform-origin-y: 0%;
- color:  white;
+ color:  ${color.light};
  list-style-type: none;
  display:flex;
  justify-content: center;
@@ -64,7 +64,7 @@ const Wrapper = styled.section`
     
     
     z-index:88;
-    color:white;
+    color: ${color.light};
 
  
   `;
@@ -73,7 +73,7 @@ const Wrapper = styled.section`
     width:100vw;
     max-width:500px;
     height:40vh;
-    background:black;
+    background:${color.dark};
   `;
 
 
@@ -86,7 +86,7 @@ const Menu = (props) => {
   flex-direction:  column;
   margin: ${  isOpen ? '0rem' : '-200rem'};
   padding-bottom:10vh;
-  background-color:black;
+  background-color:${color.dark};
   
 
   `

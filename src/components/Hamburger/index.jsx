@@ -3,7 +3,7 @@ import { MenuButton, Menu } from '../';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { Delayed } from '../'
-
+import color from '../../constants.js'
 const  Wrapper = styled.section`
 position: fixed;
 top:16px
@@ -24,7 +24,7 @@ overflow: visible;
   }
   
   .circle-progress {
-    stroke: rgb(219, 175, 64);
+    stroke: ${color.primary};
     stroke-linecap: round;
     stroke-linejoin: round;
   }
@@ -115,7 +115,7 @@ class Hamburger extends Component {
       <div >
      <Delayed waitBeforeShow={1000} ><Wrapper onClick={() => this.handleMenuClick()}>
         <CircularProgressBar percentage={this.props.active * 25}/>
-        <MenuButton isOpen={this.state.menuOpen} color='white' />
+        <MenuButton isOpen={this.state.menuOpen} color={color.light} />
         </Wrapper>
   <Menu onClick={() => this.handleLinkClick()} isOpen={this.state.menuOpen} parallax={this.props.parallax} ></Menu>
 </Delayed>
