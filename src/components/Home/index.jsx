@@ -131,7 +131,10 @@ class Home extends Component {
     }   
      this.setState({ active: index }, ()=> this.parralax.current.scrollTo(this.state.active));
   }
-
+ onSwipeStart(e) {
+    e.stopPropagation();
+          e.preventDefault();
+  }
 
 
   _handleWaypointEnter = (page, index) => {
@@ -143,7 +146,7 @@ class Home extends Component {
     display: ${this.state.active === 4 ? 'block' : 'none'} `
  
     return (
-      <Swipe ref={this.wrapper}  onSwipeMove={this.onSwipeMove}>
+      <Swipe ref={this.wrapper}     onSwipeStart={this.onSwipeStart}  onSwipeMove={this.onSwipeMove}>
         <Hamburger active={this.state.active} parralax={this.parralax}  />
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled 
