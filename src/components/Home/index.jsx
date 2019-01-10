@@ -69,11 +69,6 @@ class Home extends Component {
   }
 
 
-  componentWillReceiveProps(nextProps) {
-    if ( nextProps.location.hash !== this.props.location.hash) {
-  // this.parralax.current.scrollTo(this.state.options.filter(x => x === nextProps.location.hash).index)    
-    }
-  }
 
   componentDidMount() {
         window.addEventListener('DOMMouseScroll', this.handleScroll, false);
@@ -81,37 +76,26 @@ class Home extends Component {
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
         this.setState({ articles: res.data.articles,  active: this.props.location.hash && this.state.options.filter(x => x.route === this.props.location.hash)[0].index })
-            //  this.setState({ articles: res.data.articles})
       })
   }
 
   componentDidUpdate(prevProps, prevState) {
     if(prevState.active !== this.state.active){
-      // let hash = this.props.location.hash.replace('#', '')
-      // this.state.options.forEach((t) => {
-      //   if ( hash !== undefined && t.name === hash ) {
-          // this.props.history.push('/#' + this.state.options[this.state.active].name);
           this.parralax.current.scrollTo(this.state.active)
-      //   }
-      // })
       var node = ReactDOM.findDOMNode(this.lines.current)
-      setTimeout(()=> node.classList.remove('floater'),1000) 
-     setTimeout(()=> node.classList.add('floater'),1500)
   }
   }
 
     handleScroll = (e) => {
       e.stopPropagation();
-      // e.preventDefault();
-             
+      e.preventDefault();           
       if(e.type === 'mousewheel' ){
     let index = this.state.active;
     if (index > 0 && e.deltaY < 0 ) {
       index--
     } else if ( index < 4 && e.deltaY > 0) {
       index++
-    }
-     
+    }  
     this.setState({ active: index }, ()=> {
       this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
          this.props.history.push('/#' + this.state.options[this.state.active].name)})
@@ -120,14 +104,12 @@ class Home extends Component {
 
     onSwipeMove=(position, e) =>{
       e.stopPropagation()
-          e.preventDefault()
+      e.preventDefault()
       let index = this.state.active
     if (index > 0 && position.y  > 0) {
       index--
-      // this.props.history.push('/#' + this.state.options[index].name);
     } else if ( index < 4 && position.y  < 0) {
       index++
-      // this.props.history.push('/#' + this.state.options[index].name);
     }   
     this.setState({ active: index }, ()=> {
       this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
@@ -158,12 +140,12 @@ class Home extends Component {
          ref={this.parralax} pages={6.6}
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 1200, easing: Easing.linear })}>
-              <Parallax.Layer       
+              {/* <Parallax.Layer       
             offset={0}
             speed={-.5}      
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
-          </Parallax.Layer>
+          </Parallax.Layer> */}
           <Parallax.Layer
             offset={0}
             speed={0}
@@ -193,17 +175,14 @@ class Home extends Component {
             speed={0}
             ref={this.contact} > 
             <SectionContact />  
-          </Parallax.Layer>
-            
-        
-                   
+          </Parallax.Layer>               
         </ParallaxStyled> 
-        <Messanger><MessengerCustomerChat
+       { this.state.active ===4 && <Messanger><MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
-          /></Messanger>  
+       /></Messanger>  }
       </Swipe >
     )
   }

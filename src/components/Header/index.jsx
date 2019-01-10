@@ -25,7 +25,7 @@ const Header  = (props) => {
 
   return (<Wrapper> <Typed 
     strings={[props.text]} 
-    typeSpeed={100} 
+    typeSpeed={80} 
     showCursor={false}
 />
 {/* <h2 className={props.rotate && "fadeIn"}  >{props.text}</h2> */}
