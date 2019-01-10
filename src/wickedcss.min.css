@@ -159,16 +159,16 @@
  .spinner {
      animation-name: spinner;
      -webkit-animation-name: spinner;
-     -webkit-animation-duration: 2s;
+     -webkit-animation-duration: 52s;
      -webkit-animation-timing-function: linear;
      -webkit-animation-iteration-count: infinite;
      animation-iteration-count: infinite
  }
  
- .pulse,
+
  .spinner {
      animation-timing-function: linear;
-     animation-duration: 2s
+     animation-duration: 100s;
  }
  
  @-webkit-keyframes spinner {
@@ -190,24 +190,30 @@
  }
  
  .pulse {
+      animation-duration:10s;
      animation-name: pulse;
      -webkit-animation-name: pulse;
-     -webkit-animation-duration: 2s;
+     -webkit-animation-duration: 20s;
      -webkit-animation-timing-function: linear;
      animation-iteration-count: infinite;
      -webkit-animation-iteration-count: infinite
  }
  
  @keyframes pulse {
-     0%,
-     100% {
-         transform: scale(.9);
-         opacity: .9
+     0% {
+        transform: scale(1);
+        opacity: .3;
      }
+   
      50% {
-         transform: scale(1);
-         opacity: 1
+         transform: scale(.9);
+         opacity: .05;
      }
+
+     100% {
+        transform: scale(1);
+        opacity: .3;
+    }
  }
  
  @-webkit-keyframes pulse {
@@ -298,23 +304,24 @@
  .floater {
      animation-name: floater;
      -webkit-animation-name: floater;
-     animation-duration: 15s;
-     -webkit-animation-duration: 15s;
-     -webkit-animation-iteration-count: infinite
+     animation-duration: 30s;
+     -webkit-animation-duration: 30s;
+     /* -webkit-animation-iteration-count: infinite */
  }
  
  .floater,
  .wiggle {
-     /* animation-iteration-count: infinite */
+     animation-iteration-count: infinite
  }
  
  @keyframes floater {
      0%,
      100% {
-         transform: translate(0) 
+         transform: translate(0) rotate(0deg) scale(1);
+         
      }
      50% {
-         transform: translate(.01%,.01%)  scale(1.01)
+         transform: translate(10%,10%)  scale(1.41) rotate(-180deg)
         
          
      }
@@ -323,12 +330,13 @@
  @-webkit-keyframes floater {
      0%,
      100% {
-         -webkit-transform: translate(0)
+        transform: translate(0) rotate(0deg) scale(1);
      }
      50% {
-         -webkit-transform: translate(.01%,.01%)  scale(1.01)
+        transform: translate(10%,10%)  scale(1.41) rotate(-180deg)
         
      }
+     
  }
  
  .wiggle {

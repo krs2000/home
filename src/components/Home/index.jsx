@@ -9,6 +9,9 @@ import { withRouter } from 'react-router-dom'
 import Waypoint from 'react-waypoint'
 import img from '../../assets/decoration.jpg'
 import Lines from '../../assets/lines.svg'
+import LinesUp from '../../assets/linesUp.svg'
+import LinesDown from '../../assets/linesDown.svg'
+import ShapesBottom from '../../assets/ShapesBottom.svg'
 import color from '../../constants.js'
 import MessengerCustomerChat from 'react-messenger-customer-chat'
 import ReactDOM from 'react-dom'
@@ -19,12 +22,23 @@ const ParallaxStyled = styled(Parallax) `
   background:${color.dark}`
 
   const ParallaxImage = styled.div `
+div{
 
-  img{
-    transition: all 1s ease-out;
 
+  overflow:hidden;
+ height:30vh;
+
+}
+  img {
+  opacity:0.2;
   }
-z-index:5`
+  .short{
+
+  
+
+    opacity:0.1;
+  }
+`
 
 
 class Home extends Component {
@@ -109,7 +123,7 @@ class Home extends Component {
 
     onSwipeMove=(position, e) =>{
       e.stopPropagation()
-      e.preventDefault()
+      // e.preventDefault()
       let index = this.state.active
     if (index > 0 && position.y  > 0) {
       index--
@@ -141,15 +155,38 @@ class Home extends Component {
       onSwipeStart={this.onSwipeStart}  onSwipeMove={this.onSwipeMove}>
         <Hamburger active={this.state.active} parralax={this.parralax}  />
         <MenuAside options={this.state.options} active={this.state.active} />
+       
         <ParallaxStyled 
          ref={this.parralax} pages={6.6}
           effect={(animation, toValue) =>
-              Animated.timing(animation, { toValue, duration: 800, easing: Easing.linear })}>
+              Animated.timing(animation, { toValue, duration: 1500, easing: Easing.linear })}>
               <Parallax.Layer       
-            offset={0}
+            offset={6}
             speed={0}      
             >
-           <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
+        <ParallaxImage><img src={ShapesBottom}  ref={this.lines} className='spinner' alt='lines' /></ParallaxImage> 
+        
+          </Parallax.Layer>
+          <Parallax.Layer       
+            offset={2}
+            speed={0}      
+            >
+        <ParallaxImage><img src={Lines}  ref={this.lines} className='pulse' alt='lines' /></ParallaxImage> 
+        
+          </Parallax.Layer>
+          <Parallax.Layer       
+            offset={1}
+            speed={.3}      
+            >
+        <ParallaxImage><img src={LinesUp}  ref={this.lines} className='' alt='lines' /></ParallaxImage> 
+        
+          </Parallax.Layer>
+          <Parallax.Layer       
+            offset={3}
+            speed={.3}      
+            >
+        <ParallaxImage><img src={LinesDown}  ref={this.lines} className='' alt='lines' /></ParallaxImage> 
+        
           </Parallax.Layer>
           <Parallax.Layer
             offset={0}
@@ -188,6 +225,7 @@ class Home extends Component {
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
        /></Messanger>  }
+
       </Swipe >
     )
   }

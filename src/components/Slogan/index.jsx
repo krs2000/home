@@ -4,7 +4,7 @@ import { Delayed } from '../'
 import color from '../../constants.js'
 import {Bulb} from '../'
 const HomepageTextBox = styled.section`
-min-width:300px;
+min-width:290px;
       ::first-letter {
           font-weight: 900;
           color: ${color.primary};

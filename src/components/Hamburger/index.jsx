@@ -113,9 +113,9 @@ class Hamburger extends Component {
   render() {
     return (
       <div >
-     <Delayed waitBeforeShow={1000} ><Wrapper onClick={() => this.handleMenuClick()}>
+     <Delayed waitBeforeShow={2000} ><Wrapper  onClick={() => this.handleMenuClick()}>
         <CircularProgressBar percentage={this.props.active * 25}/>
-        <MenuButton isOpen={this.state.menuOpen} color={color.light} />
+        <MenuButton     isOpen={this.state.menuOpen} color={color.light} />
         </Wrapper>
   <Menu onClick={() => this.handleLinkClick()} isOpen={this.state.menuOpen} parallax={this.props.parallax} ></Menu>
 </Delayed>

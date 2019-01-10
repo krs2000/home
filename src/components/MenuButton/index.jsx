@@ -40,6 +40,7 @@ import color from '../../constants.js'
           viewBox="0 0 96 96"
           height="1em"
           style={style}
+       
         >
           <Motion 
             style={{
@@ -57,6 +58,7 @@ import color from '../../constants.js'
                 strokeLinejoin="round"
                >
                 <line 
+                
                   transform={`translate(${x * -9}, ${x * -12}) rotate(${x * 45}, 0, 30)`} 
                   x1="0" y1="0" x2="80" y2="0" 
                  />
