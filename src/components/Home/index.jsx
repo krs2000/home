@@ -38,22 +38,22 @@ class Home extends Component {
       }, {
         name: 'blog',
         route: '#blog',
-        scroll: 1.5,
+        scroll: 1.4,
         index: 1
       }, {
         name: 'projects',
         route: '#projects',
-        scroll: 3,
+        scroll: 2.8,
         index: 2
       }, {
         name: 'about',
         route: '#about',
-        scroll: 4.5,
+        scroll: 4.2,
         index: 3
       }, {
         name: 'contact',
         route: '#contact',
-        scroll: 6,
+        scroll: 5.6,
         index: 4
       }],
       active: 0
@@ -94,9 +94,9 @@ class Home extends Component {
           this.parralax.current.scrollTo(this.state.active)
       //   }
       // })
-    //   var node = ReactDOM.findDOMNode(this.lines.current)
-    //   setTimeout(()=> node.classList.remove('floater'),1000) 
-    //  setTimeout(()=> node.classList.add('floater'),1500)
+      var node = ReactDOM.findDOMNode(this.lines.current)
+      setTimeout(()=> node.classList.remove('floater'),1000) 
+     setTimeout(()=> node.classList.add('floater'),1500)
   }
   }
 
@@ -155,12 +155,12 @@ class Home extends Component {
         <Hamburger active={this.state.active} parralax={this.parralax}  />
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled 
-         ref={this.parralax} pages={7}
+         ref={this.parralax} pages={6.6}
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 1200, easing: Easing.linear })}>
               <Parallax.Layer       
             offset={0}
-            speed={0.1}      
+            speed={-.5}      
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
@@ -171,25 +171,25 @@ class Home extends Component {
             <SectionWelcome />
           </Parallax.Layer>
           <Parallax.Layer
-            offset={1.5}
+            offset={1.4}
             speed={0}
             ref={this.blog} >         
             <SectionBlog articles={this.state.articles} />
           </Parallax.Layer>
           <Parallax.Layer
-            offset={3}
+            offset={2.8}
             speed={0}
             ref={this.projects}>
             <SectionProjects />
           </Parallax.Layer> 
           <Parallax.Layer
-            offset={4.5}
+            offset={4.2}
             speed={0}
             ref={this.about} >
             <SectionAbout />
           </Parallax.Layer>
           <Parallax.Layer
-            offset={6}
+            offset={5.6}
             speed={0}
             ref={this.contact} > 
             <SectionContact />  
