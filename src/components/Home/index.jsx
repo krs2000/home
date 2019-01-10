@@ -19,6 +19,11 @@ const ParallaxStyled = styled(Parallax) `
   background:${color.dark}`
 
   const ParallaxImage = styled.div `
+
+  img{
+    transition: all 1s ease-out;
+
+  }
 z-index:5`
 
 
@@ -139,12 +144,12 @@ class Home extends Component {
         <ParallaxStyled 
          ref={this.parralax} pages={6.6}
           effect={(animation, toValue) =>
-              Animated.timing(animation, { toValue, duration: 1200, easing: Easing.linear })}>
+              Animated.timing(animation, { toValue, duration: 800, easing: Easing.linear })}>
               <Parallax.Layer       
             offset={0}
-            speed={.2}      
+            speed={0}      
             >
-           <ParallaxImage><img src={Lines}  ref={this.lines} className='flotter' alt='lines' /></ParallaxImage> 
+           <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
           <Parallax.Layer
             offset={0}

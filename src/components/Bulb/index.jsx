@@ -1,5 +1,5 @@
 import React from 'react';
-import styled , { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Typed from 'react-typed';
 import color from '../../constants.js'
 import bulb from '../../assets/bulb.svg';
@@ -38,32 +38,54 @@ img{
 .rotate{
   position:absolute;
   top:4%;
-left:5%;
-height:65%;
+  left:5%;
+  height:65%;
   animation: ${spinnerReverse} 12s linear infinite;
 }
 .rotateInner{
   position:absolute;
   top:4%;
-left:5%;
-height:60%;
+  left:5%;
+  height:2em;
 }
 .rotateCenter{
   position:absolute;
-  top:15%;
-left:25%;
-height:60px;
+  top:.25em;
+  left:.3em;
+  height:1em;
   animation: ${spinner} 5s linear infinite;
 }
+  font-size: 1.2em;
+  font-weight: 300;
+  letter-spacing:.1rem;
+  font-family: Roboto;
+  color:  ${color.light};
+      ::first-letter {
+          font-weight: 600;
+          color: ${color.primary};
+          text-transform: uppercase;}
+          &:after{
+            position:absolute;
+            left:1em;
+            top:.9em;
+            content:'deas';
+            font-size: 1.3em;
+          }
+          &:before{
+            position:absolute;
+            left:1.7em;
+            top:.1em;
+            content:'Making'
+          }
 `;
-const Bulb  = (props) => {
-  
-  const  Wrapper = styled.section`
+const Bulb = (props) => {
+
+  const Wrapper = styled.section`
  
  `;
 
-  return (<Rotate>  <img className='bulb' src={bulb}/><img className='rotateCenter' src={rotateCenter}/>
-</Rotate>)
+  return (<Rotate>  <img className='bulb' src={bulb} /><img className='rotateCenter' src={rotateCenter} />
+  </Rotate>)
 }
 
 export default Bulb;
