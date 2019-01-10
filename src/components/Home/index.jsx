@@ -140,12 +140,12 @@ class Home extends Component {
          ref={this.parralax} pages={6.6}
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 1200, easing: Easing.linear })}>
-              {/* <Parallax.Layer       
+              <Parallax.Layer       
             offset={0}
-            speed={-.5}      
+            speed={.2}      
             >
-           <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
-          </Parallax.Layer> */}
+           <ParallaxImage><img src={Lines}  ref={this.lines} className='flotter' alt='lines' /></ParallaxImage> 
+          </Parallax.Layer>
           <Parallax.Layer
             offset={0}
             speed={0}

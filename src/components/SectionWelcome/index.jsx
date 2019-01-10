@@ -1,27 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Slogan} from '../'
-
+import {Slogan} from '../';
+// import {Bulb} from '../'
 const Wrapper = styled.section`
 height: 100vh;
-width:100%;
-
 position: relative;
 overflow: hidden;
 display:flex;
-flex-direction:column;
-justify-content:flex-end;
-align-items:flex-end;;
+flex-direction:row;
+justify-content:flex-start;
+align-items:flex-start;;
   `;
 
-
-
-
 const WelcomeSection = (props) => {
-
   return (<Wrapper>
-  <Slogan/>
-
+ <Slogan/>
   </Wrapper>)
 }
 

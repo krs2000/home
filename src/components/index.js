@@ -9,7 +9,7 @@ export { default as SectionWelcome } from './SectionWelcome';
 export { default as SectionBlog } from './SectionBlog';
 export { default as Header } from './Header';
 export { default as SectionProjects } from './SectionProjects';
-
+export { default as Bulb } from './Bulb';
 export { default as SectionAbout } from './SectionAbout';
 export { default as SectionContact } from './SectionContact';
 export { default as Delayed } from './Delayed';

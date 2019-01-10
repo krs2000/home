@@ -56,22 +56,17 @@ const scrollToMyRef = (index,props) => {
   
 
 const Wrapper = styled.section`
-
     position:absolute;
     bottom:0;
     right:0;
-    width:100vw;
-    
-    
+    width:100vw;  
     z-index:88;
     color: ${color.light};
-
- 
   `;
 
   const BlackBox = styled.div`
     width:100vw;
-    max-width:500px;
+    // max-width:500px;
     height:40vh;
     background:${color.dark};
   `;
@@ -87,7 +82,6 @@ const Menu = (props) => {
   margin: ${  isOpen ? '0rem' : '-200rem'};
   padding-bottom:10vh;
   background-color:${color.dark};
-  
 
   `
   
@@ -99,7 +93,6 @@ const Menu = (props) => {
           menu.map((item, index) => <div  onClick={() => scrollToMyRef(item.route,props)} key={`item-${index}`}><Item>{item.name}</Item></div>)
         }
       </Sidebar>
-
     </Wrapper >
   );
 }
