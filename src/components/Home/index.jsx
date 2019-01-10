@@ -38,22 +38,22 @@ class Home extends Component {
       }, {
         name: 'blog',
         route: '#blog',
-        scroll: 1,
+        scroll: 1.5,
         index: 1
       }, {
         name: 'projects',
         route: '#projects',
-        scroll: 2,
+        scroll: 3,
         index: 2
       }, {
         name: 'about',
         route: '#about',
-        scroll: 3,
+        scroll: 4.5,
         index: 3
       }, {
         name: 'contact',
         route: '#contact',
-        scroll: 4,
+        scroll: 6,
         index: 4
       }],
       active: 0
@@ -94,9 +94,9 @@ class Home extends Component {
           this.parralax.current.scrollTo(this.state.active)
       //   }
       // })
-      var node = ReactDOM.findDOMNode(this.lines.current)
-      node.classList.remove('floater')
-     setTimeout(()=> node.classList.add('floater'),1000)
+    //   var node = ReactDOM.findDOMNode(this.lines.current)
+    //   setTimeout(()=> node.classList.remove('floater'),1000) 
+    //  setTimeout(()=> node.classList.add('floater'),1500)
   }
   }
 
@@ -113,7 +113,7 @@ class Home extends Component {
     }
      
     this.setState({ active: index }, ()=> {
-      this.parralax.current.scrollTo(this.state.active)
+      this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
          this.props.history.push('/#' + this.state.options[this.state.active].name)})
    }
   }
@@ -130,7 +130,7 @@ class Home extends Component {
       // this.props.history.push('/#' + this.state.options[index].name);
     }   
     this.setState({ active: index }, ()=> {
-      this.parralax.current.scrollTo(this.state.active)
+      this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
          this.props.history.push('/#' + this.state.options[this.state.active].name)})
    
   }
@@ -155,12 +155,12 @@ class Home extends Component {
         <Hamburger active={this.state.active} parralax={this.parralax}  />
         <MenuAside options={this.state.options} active={this.state.active} />
         <ParallaxStyled 
-         ref={this.parralax} pages={5}
+         ref={this.parralax} pages={7}
           effect={(animation, toValue) =>
-              Animated.timing(animation, { toValue, duration: 800, easing: Easing.linear })}>
+              Animated.timing(animation, { toValue, duration: 1200, easing: Easing.linear })}>
               <Parallax.Layer       
             offset={0}
-            speed={0.4}      
+            speed={0.1}      
             >
            <ParallaxImage><img src={Lines}  ref={this.lines} className='floater' alt='lines' /></ParallaxImage> 
           </Parallax.Layer>
@@ -171,25 +171,25 @@ class Home extends Component {
             <SectionWelcome />
           </Parallax.Layer>
           <Parallax.Layer
-            offset={1}
+            offset={1.5}
             speed={0}
             ref={this.blog} >         
             <SectionBlog articles={this.state.articles} />
           </Parallax.Layer>
           <Parallax.Layer
-            offset={2}
+            offset={3}
             speed={0}
             ref={this.projects}>
             <SectionProjects />
           </Parallax.Layer> 
           <Parallax.Layer
-            offset={3}
+            offset={4.5}
             speed={0}
             ref={this.about} >
             <SectionAbout />
           </Parallax.Layer>
           <Parallax.Layer
-            offset={4}
+            offset={6}
             speed={0}
             ref={this.contact} > 
             <SectionContact />  

@@ -42,7 +42,7 @@ class MenuAside extends Component {
 
   render() {
     return (
-      <Wrapper><HeaderBox>{this.props.options.map(x => this.props.active === x.index && x.index > 0 && <Delayed  key={`index-${x.index}`} waitBeforeShow={900}> <Header rotate={true} text={x.name} color={this.props.active < 3 ? color.dark : color.light} /></Delayed>)}</HeaderBox>
+      <Wrapper><HeaderBox>{this.props.options.map(x => this.props.active === x.index && x.index > 0 && <Delayed  key={`index-${x.index}`} waitBeforeShow={1300}> <Header rotate={true} text={x.name} color={this.props.active < 3 ? color.dark : color.light} /></Delayed>)}</HeaderBox>
       </Wrapper>
     );
   }
