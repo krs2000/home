@@ -160,13 +160,7 @@ class Home extends Component {
          ref={this.parralax} pages={6.6}
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 1500, easing: Easing.linear })}>
-              <Parallax.Layer       
-            offset={6}
-            speed={0}      
-            >
-        <ParallaxImage><img src={ShapesBottom}  ref={this.lines} className='spinner' alt='lines' /></ParallaxImage> 
-        
-          </Parallax.Layer>
+            
           <Parallax.Layer       
             offset={2}
             speed={0}      
@@ -175,6 +169,12 @@ class Home extends Component {
         
           </Parallax.Layer>
           <Parallax.Layer       
+            offset={6}
+            speed={.3}      
+            >
+        <ParallaxImage><img src={ShapesBottom}  ref={this.lines} className='spinner' alt='lines' /></ParallaxImage> 
+          </Parallax.Layer> 
+          <Parallax.Layer       
             offset={1}
             speed={.3}      
             >
@@ -182,8 +182,8 @@ class Home extends Component {
         
           </Parallax.Layer>
           <Parallax.Layer       
-            offset={3}
-            speed={.3}      
+            offset={2.9}
+            speed={.1}      
             >
         <ParallaxImage><img src={LinesDown}  ref={this.lines} className='' alt='lines' /></ParallaxImage> 
         
@@ -192,7 +192,7 @@ class Home extends Component {
             offset={0}
             speed={0}
             ref={this.welcome}>
-            <SectionWelcome />
+            <SectionWelcome active={this.state.active === 0} />
           </Parallax.Layer>
           <Parallax.Layer
             offset={1.4}
@@ -217,7 +217,8 @@ class Home extends Component {
             speed={0}
             ref={this.contact} > 
             <SectionContact />  
-          </Parallax.Layer>               
+          </Parallax.Layer>    
+              
         </ParallaxStyled> 
        { this.state.active ===4 && <Messanger><MessengerCustomerChat
             pageId="410114706194481"

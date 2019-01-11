@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Typed from 'react-typed';
+
 import color from '../../constants.js'
 
 const Header  = (props) => {
@@ -23,12 +23,9 @@ const Header  = (props) => {
   // }
   //   `;
 
-  return (<Wrapper> <Typed 
-    strings={[props.text]} 
-    typeSpeed={80} 
-    showCursor={false}
-/>
-{/* <h2 className={props.rotate && "fadeIn"}  >{props.text}</h2> */}
+  return (<Wrapper>
+
+ <h2 className={props.rotate && "fadeIn"}  >{props.text}</h2> 
 
 </Wrapper>)
 }

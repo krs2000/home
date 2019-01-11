@@ -3,6 +3,7 @@ import styled , { keyframes } from 'styled-components';
 import { Delayed } from '../'
 import color from '../../constants.js'
 import {Bulb} from '../'
+import Typed from 'react-typed';
 const HomepageTextBox = styled.section`
 min-width:290px;
       ::first-letter {
@@ -34,13 +35,19 @@ const Wrapper = styled.section`
 .bottomText{
 padding-left:0.2em;
 font-size: 1.2em;
+width:5em;
+min-width:300px;
 }
   `;
 
 const Slogan = (props) => {
   return (<Wrapper>
-    <Delayed waitBeforeShow={500} >
-    <HomepageTextBox className='fadeIn'><div className='row'><Bulb/></div><div className='bottomText'>happen</div></HomepageTextBox>
+    <Delayed waitBeforeShow={1000} >
+    <HomepageTextBox className='fadeIn'><div className='row'><Bulb/></div><div className='bottomText'><Typed 
+    strings={['happen']} 
+    typeSpeed={200} 
+    showCursor={true}
+/></div></HomepageTextBox>
     </Delayed>
     </Wrapper>)
 }

@@ -11,9 +11,10 @@ flex-direction:row;
 justify-content:flex-start;
 align-items:center;
   `;
-
+ 
 const WelcomeSection = (props) => {
-  return (<Wrapper>
+
+  return (<Wrapper className={!props.active && 'fadeOut'}>
  <Slogan/>
   </Wrapper>)
 }
