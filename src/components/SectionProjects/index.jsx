@@ -28,11 +28,10 @@ class SectionProjects extends Component {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    
       `;
 
       const Box= styled.div`
-   
+      background:${color.dark};
       background-size: cover;
       height: 30vh;
       min-height:88px;
@@ -52,7 +51,6 @@ class SectionProjects extends Component {
          text-transform:uppercase;
          font-family:'Roboto',sans-serif;
          font-size:1em;
-
          color: ${color.light};
          text-align:center;
          transition: all 0.15s;

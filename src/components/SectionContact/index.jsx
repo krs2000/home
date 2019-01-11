@@ -14,7 +14,7 @@ color: ${color.light};
   font-weight:100;
 }
     fot-weight:100;
-  padding:20% 0 0 30%;
+  padding:30% 0 0 30%;
   max-width:65vw;
   min-width:180px;
   position: relative;
@@ -44,6 +44,9 @@ img{
 }
 a{
   text-decoration:none;
+}
+p,h3{
+  margin:0.4rem 0;
 }
 
   `;

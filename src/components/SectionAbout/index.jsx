@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import color from '../../constants.js'
 import { Header } from '../'
+import lookUp from '../../assets/lookUp.svg'
+import arrowUp from '../../assets/arrowUp.svg'
 
-
-
-const SectionAbout = (props) => {
   const Wrapper = styled.section`
 height: 100vh;
 width:100%;
@@ -17,13 +16,20 @@ div{
   width:70%;
   h3{
     color: ${color.light};
-    font-size:3.2vh;
+    font-size: 4vh;
     text-align:start;
-    margin:1vh 0 .1vh 0;
+    margin:.4rem 0 .4rem 0;
+    font-weight: 300;
+     cursor:pointer;
+    img{
+      padding:1.5rem 0 0 .4rem;
+      height:2.5vh;
+     
+    }
   }
   span{
     color: ${color.primary};
-    font-size:3vh;
+   font-size: 3vh;
     width:70%;
     margin:0.1vh 0 1vh 0;
     text-align:start;
@@ -32,22 +38,63 @@ div{
 }
   `;
 
-  return (<Wrapper>
+class SectionAbout extends React.Component {
+
+    constructor(props) {
+        super(props);
+    this.state={
+      options:[
+        {header:`Front-end development`,
+        text:`Well written JS, HTML and CSS can make your ideas happen.`
+         },
+        {header:`Responsive Design`,
+        text:`No matter the device, your website will shine.`
+        },
+        {header:`Advanced  frameworks`,
+        text:`Angular, React.js, Angular.js and willing to practise Vue.js.`
+        },
+        {header:`Advanced animations`,
+        text:`Animations that can make your website alive.`
+         },
+        {header:`Wordpress`,
+        text:`Most advanced extensions and plugins can make a difference.`
+        }
+      ],
+      active: undefined
+    }
+    }
+    componentWillMount(){
+ this.setState({active: undefined})
+    };
+
+    // componentWillUnmount = () => {                        
+                                        
+    //   };                                         
+    handleClick = (index) => {
+     index !== this.state.active ? this.setState({active: index}) : this.setState({active: undefined}) 
+    }
+
+    render() {
+  
+       return (<Wrapper>
     <Header color={color.light} rotate='true' text='About'/>
-    <div>
-    <h3>Front-end development</h3>
-        <span >Well written JS, HTML and CSS can make your ideas happen.</span> 
-         <h3 >Responsive Design</h3>
-        <span >No matter the device, your website will shine.</span>
-        <h3 >Advanced  frameworks</h3>
-        <span >Angular, React.js, Angular.js and willing to practise Vue.js</span> 
-     <h3 >Advanced animations</h3>
-<span >Animations that can make your website alive.</span>
-   <h3 >Wordpress & Woocomerce development</h3>
-     <span >Most advanced extensions and plugins can make a difference.</span>
-   </div>
+    {/* <div> */}
+   { this.state.options.map((option,index) =><div key={`about-${index}`}> <h3  onClick={()=>this.handleClick(index)}>{option.header}<img src={ this.state.active === index ? arrowUp : lookUp}/></h3>
+  { this.state.active === index && <span >{option.text}</span>}
+   
+   </div>) }
+   {/* </div> */}
   </Wrapper>)
+  
+    }
+      
+    
 }
+
+
+
+ 
+
 
 
 export default SectionAbout;

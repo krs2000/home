@@ -159,7 +159,7 @@ class Home extends Component {
         
           </Parallax.Layer>
           <Parallax.Layer       
-            offset={2.8}
+            offset={2.7}
             speed={.1}      
             >
         <ParallaxImage><div><img src={LinesDown}  ref={this.lines} className='' alt='lines' /></div></ParallaxImage> 
