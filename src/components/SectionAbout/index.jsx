@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import color from '../../constants.js'
-
+import { Header } from '../'
 
 
 
@@ -33,6 +33,7 @@ div{
   `;
 
   return (<Wrapper>
+    <Header color={color.light} rotate='true' text='About'/>
     <div>
     <h3>Front-end development</h3>
         <span >Well written JS, HTML and CSS can make your ideas happen.</span> 

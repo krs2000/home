@@ -14,7 +14,7 @@ align-items:center;
  
 const WelcomeSection = (props) => {
 
-  return (<Wrapper className={!props.active && 'fadeOut'}>
+  return (<Wrapper >
  <Slogan/>
   </Wrapper>)
 }

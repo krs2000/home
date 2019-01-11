@@ -5,6 +5,7 @@ import Cba from '../../assets/cba.png'
 import Ob from '../../assets/ob.png'
 import Inwedo from '../../assets/inwedo.png'
 import color from '../../constants.js'
+import { Header } from '../'
 class SectionProjects extends Component {
 
   constructor(props) {
@@ -82,13 +83,14 @@ class SectionProjects extends Component {
         display: flex;
         align-items:flex-end;
         flex-direction:column;
-        z-index:10;
+        z-index:4;
        
 
     }`
 
     return (
       <Wrapper>
+        <Header color={color.dark} rotate='true' text='Projects'/>
         <Box><button className={ this.state.firstCard ? 'active': ''} onClick={() => this.change(true)}>Commercial</button><button className={ this.state.firstCard ?  '' :'active'}  onClick={() => this.change(false)}>Personal</button></Box>
         {!this.state.firstCard && <ProjectRowBox >
           <ProjectLink  page='https://cool-beer-app.herokuapp.com/'    image={Cba} title='Crafted beers app v0.1'/>

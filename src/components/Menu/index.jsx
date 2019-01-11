@@ -66,7 +66,7 @@ const Wrapper = styled.section`
 
   const BlackBox = styled.div`
     width:100vw;
-    // max-width:500px;
+    max-width:240px;
     height:40vh;
     background:${color.dark};
   `;
@@ -76,12 +76,13 @@ const Menu = (props) => {
   const { isOpen } = props;
   const Sidebar = styled.section`
   width:100vw;
-  max-width:500px;
+  max-width:240px;
   display:flex;
   flex-direction:  column;
   margin: ${  isOpen ? '0rem' : '-200rem'};
   padding-bottom:10vh;
   background-color:${color.dark};
+   
 
   `
   

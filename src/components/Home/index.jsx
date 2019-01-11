@@ -23,19 +23,12 @@ const ParallaxStyled = styled(Parallax) `
 
   const ParallaxImage = styled.div `
 div{
-
-
-  overflow:hidden;
- height:30vh;
-
+overflow:hidden;
 }
   img {
-  opacity:0.2;
+  opacity:1;
   }
   .short{
-
-  
-
     opacity:0.1;
   }
 `
@@ -62,7 +55,7 @@ class Home extends Component {
       }, {
         name: 'projects',
         route: '#projects',
-        scroll: 2.8,
+        scroll: 2.4,
         index: 2
       }, {
         name: 'about',
@@ -123,7 +116,7 @@ class Home extends Component {
 
     onSwipeMove=(position, e) =>{
       e.stopPropagation()
-      // e.preventDefault()
+      e.preventDefault()
       let index = this.state.active
     if (index > 0 && position.y  > 0) {
       index--
@@ -154,26 +147,10 @@ class Home extends Component {
       
       onSwipeStart={this.onSwipeStart}  onSwipeMove={this.onSwipeMove}>
         <Hamburger active={this.state.active} parralax={this.parralax}  />
-        <MenuAside options={this.state.options} active={this.state.active} />
-       
         <ParallaxStyled 
          ref={this.parralax} pages={6.6}
           effect={(animation, toValue) =>
               Animated.timing(animation, { toValue, duration: 1500, easing: Easing.linear })}>
-            
-          <Parallax.Layer       
-            offset={2}
-            speed={0}      
-            >
-        <ParallaxImage><img src={Lines}  ref={this.lines} className='pulse' alt='lines' /></ParallaxImage> 
-        
-          </Parallax.Layer>
-          <Parallax.Layer       
-            offset={6}
-            speed={.3}      
-            >
-        <ParallaxImage><img src={ShapesBottom}  ref={this.lines} className='spinner' alt='lines' /></ParallaxImage> 
-          </Parallax.Layer> 
           <Parallax.Layer       
             offset={1}
             speed={.3}      
@@ -182,10 +159,10 @@ class Home extends Component {
         
           </Parallax.Layer>
           <Parallax.Layer       
-            offset={2.9}
+            offset={2.8}
             speed={.1}      
             >
-        <ParallaxImage><img src={LinesDown}  ref={this.lines} className='' alt='lines' /></ParallaxImage> 
+        <ParallaxImage><div><img src={LinesDown}  ref={this.lines} className='' alt='lines' /></div></ParallaxImage> 
         
           </Parallax.Layer>
           <Parallax.Layer
@@ -201,7 +178,7 @@ class Home extends Component {
             <SectionBlog articles={this.state.articles} />
           </Parallax.Layer>
           <Parallax.Layer
-            offset={2.8}
+            offset={2.4}
             speed={0}
             ref={this.projects}>
             <SectionProjects />
@@ -216,16 +193,17 @@ class Home extends Component {
             offset={5.6}
             speed={0}
             ref={this.contact} > 
-            <SectionContact />  
-          </Parallax.Layer>    
-              
+           <Waypoint
+  onEnter={()=>this._handleWaypointEnter('contact',4)}
+/> <SectionContact />  
+          </Parallax.Layer>           
         </ParallaxStyled> 
-       { this.state.active ===4 && <Messanger><MessengerCustomerChat
+       { this.state.active === 4 ? (<Messanger><MessengerCustomerChat
             pageId="410114706194481"
             appId="2201094929903504"
             htmlRef={window.location.pathname}
             themeColor="#dbaf40"
-       /></Messanger>  }
+       /></Messanger>): ''  }
 
       </Swipe >
     )

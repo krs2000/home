@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import img from '../../assets/decoration.jpg';
 import Swipeable from 'react-swipeable'
 import color from '../../constants.js'
-
+import { Header } from '../'
 const Wrapper = styled.section`
 height: 100vh;
 width:100%;
@@ -58,6 +58,7 @@ const returnArticles = (article) => {
 
 const SectionBlog = (props) => {
   return (<Wrapper>
+  <Header color={color.dark} rotate='true' text='Blog'/>
     {ExampleSlider(props.articles)}
   </Wrapper>)
 }
