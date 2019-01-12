@@ -99,33 +99,34 @@ class Home extends Component {
   }
 
     handleScroll = (e) => {
-      e.stopPropagation();
-      e.preventDefault();           
-      if(e.type === 'mousewheel' ){
-    let index = this.state.active;
-    if (index > 0 && e.deltaY < 0 ) {
-      index--
-    } else if ( index < 4 && e.deltaY > 0) {
-      index++
-    }  
-    this.setState({ active: index }, ()=> {
-      this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
-         this.props.history.push('/#' + this.state.options[this.state.active].name)})
-   }
+  //     e.stopPropagation();
+  //     e.preventDefault();    
+  //     console.log(document)       
+  //     if(e.type === 'mousewheel' ){
+  //   let index = this.state.active;
+  //   if (index > 0 && e.deltaY < 0 ) {
+  //     index--
+  //   } else if ( index < 4 && e.deltaY > 0) {
+  //     index++
+  //   }  
+  //   this.setState({ active: index }, ()=> {
+  //     this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
+  //        this.props.history.push('/#' + this.state.options[this.state.active].name)})
+  //  }
   }
 
     onSwipeMove=(position, e) =>{
-      e.stopPropagation()
-      e.preventDefault()
-      let index = this.state.active
-    if (index > 0 && position.y  > 0) {
-      index--
-    } else if ( index < 4 && position.y  < 0) {
-      index++
-    }   
-    this.setState({ active: index }, ()=> {
-      this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
-         this.props.history.push('/#' + this.state.options[this.state.active].name)})
+    //   e.stopPropagation()
+    //   e.preventDefault()
+    //   let index = this.state.active
+    // if (index > 0 && position.y  > 0) {
+    //   index--
+    // } else if ( index < 4 && position.y  < 0) {
+    //   index++
+    // }   
+    // this.setState({ active: index }, ()=> {
+    //   this.parralax.current.scrollTo(this.state.options[this.state.active].scroll)
+    //      this.props.history.push('/#' + this.state.options[this.state.active].name)})
    
   }
  onSwipeStart=(e)=> {
@@ -140,7 +141,9 @@ class Home extends Component {
 
   render() {
     const Messanger = styled.div `
-    display: ${this.state.active === 4 ? 'block' : 'none'} `
+    .fb_dialog{
+       display: ${this.state.active === 4 ? 'inline' : 'none !important'}
+       }`
  
     return (
       <Swipe ref={this.wrapper}   
