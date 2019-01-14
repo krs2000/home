@@ -22,7 +22,7 @@ left:10%;
 }
 img{
   width:7vh;
-  margin:2rem;
+  margin:2rem 1rem 1rem 1rem;
   cursor:pointer;
   &:hover{
    transform: scale(1.05);
@@ -32,7 +32,7 @@ a{
   text-decoration:none;
 }
 article{
-  padding:15%;
+  padding:0 15%;
 }
 p,h3{
   margin:0.2rem 0;

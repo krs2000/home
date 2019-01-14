@@ -41,32 +41,25 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      lastScrollPos: 0,
       articles: [],
       options: [{
-
         name: 'welcome',
-        route: '#welcome',
         scroll: 0,
         index: 0
       }, {
         name: 'blog',
-        route: '#blog',
         scroll: 1.6,
         index: 1
       }, {
         name: 'projects',
-        route: '#projects',
         scroll: 2.7,
         index: 2
       }, {
         name: 'about',
-        route: '#about',
         scroll: 4.2,
         index: 3
       }, {
         name: 'contact',
-        route: '#contact',
         scroll: 5.6,
         index: 4
       }],
@@ -83,7 +76,7 @@ class Home extends Component {
     axios('https://shark-blog-one.herokuapp.com/api/articles')
       .then((res) => {
         this.setState({ articles: res.data.articles})
-        window.scroll(0, this.state.options.filter(x=> x.name === ConvertString(this.props.location.pathname))[0].scroll *  window.innerHeight)
+        // this.props.location.pathname !== '' &&  window.scroll(0, this.state.options.filter(x=> x.name === ConvertString(this.props.location.pathname))[0].scroll *  window.innerHeight)
       })
   }
 
