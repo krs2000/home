@@ -6,13 +6,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+/* 
 -webkit-scrollbar :none; 
 
-}
-::-webkit-scrollbar { 
-  display: none; 
-}
+} */
+/* ::-webkit-scrollbar { 
+  /* display: none;  */
+} 
 @font-face {
   font-family: "KudetaScript";
   src: url("assets/fonts/KudetaScript.woff") format('woff');

@@ -5,7 +5,7 @@ import {color,device} from '../../constants.js'
 const Header  = (props) => {
   const  Wrapper = styled.section`
   color: ${ props.color ?  props.color : color.dark };
-  letter-spacing:.2rem;
+  letter-spacing:.2rem !important;
   text-align:end;
   z-index:99;
   text-transform:capitalize;
@@ -13,8 +13,12 @@ const Header  = (props) => {
   z-index:5;
   cursor: pointer;
   overflow: visible;
-  font-weight:900;
+  font-weight:100;
   padding:.2rem 5%;
+  &:first-letter{
+ 
+    color:${color.primary}
+  }
   font-size:2rem;
       @media ${device.laptop} {  
      font-size:5rem;
