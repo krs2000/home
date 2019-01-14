@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { MenuButton, Menu } from '../';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import { Delayed } from '../'
-import color from '../../constants.js'
+import {color} from '../../constants.js'
 const  Wrapper = styled.section`
 position: fixed;
 top:16px
@@ -22,14 +21,11 @@ overflow: visible;
   .circle-progress {
   fill:  none
   }
-  
   .circle-progress {
     stroke: ${color.primary};
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-  
-
     `;
   
   
@@ -41,17 +37,12 @@ class CircularProgressBar extends React.Component {
 
 
   render() {
-    // Size of the enclosing square
     const sqSize = this.props.sqSize;
-    // SVG centers the stroke width on the radius, subtract out so circle fits in square
     const radius = (this.props.sqSize - this.props.strokeWidth) / 2;
-    // Enclose cicle in a circumscribing square
     const viewBox = `0 0 ${sqSize} ${sqSize}`;
-    // Arc length at 100% coverage is the circle circumference
     const dashArray = radius * Math.PI * 2;
-    // Scale 100% coverage overlay with the actual percent
-    const dashOffset = dashArray - dashArray * this.props.percentage / 100;
-
+    var height = document.body.clientHeight;
+    const dashOffset = dashArray - dashArray * (window.pageYOffset / (height - window.innerHeight)) ;
     return (
       <ProgressBar>
       <svg
@@ -69,16 +60,13 @@ class CircularProgressBar extends React.Component {
             className="circle-progress"
             cx={this.props.sqSize / 2}
             cy={this.props.sqSize / 2}
-            r={radius}
-          
+            r={radius}    
             strokeWidth={`${this.props.strokeWidth}px`}
-            // Start progress marker at 12 O'Clock
             transform={`rotate(-90 ${this.props.sqSize / 2} ${this.props.sqSize / 2})`}
             style={{
               strokeDasharray: dashArray,
               strokeDashoffset: dashOffset
             }} />
- 
       </svg>
       </ProgressBar>
     );
@@ -113,12 +101,11 @@ class Hamburger extends Component {
   render() {
     return (
       <div >
-     <Delayed waitBeforeShow={2000} ><Wrapper  onClick={() => this.handleMenuClick()}>
+   <Wrapper onClick={() => this.handleMenuClick()}>
         <CircularProgressBar percentage={this.props.active * 25}/>
         <MenuButton     isOpen={this.state.menuOpen} color={color.light} />
         </Wrapper>
-  <Menu onClick={() => this.handleLinkClick()} isOpen={this.state.menuOpen} parallax={this.props.parallax} ></Menu>
-</Delayed>
+  <Menu onClick={() => this.handleLinkClick()} isOpen={this.state.menuOpen}  ></Menu>
       </div >
     );
   }

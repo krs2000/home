@@ -1,7 +1,7 @@
 import React from 'react';
-import styled , { keyframes } from 'styled-components';
+import styled  from 'styled-components';
 import { Delayed } from '../'
-import color from '../../constants.js'
+import {color} from '../../constants.js'
 import {Bulb} from '../'
 import Typed from 'react-typed';
 const HomepageTextBox = styled.section`
@@ -13,7 +13,7 @@ min-width:290px;
   `;
 
 const Wrapper = styled.section`
-  z-index: 99;
+  z-index: 20;
   font-size: 10vh;
   font-weight: 300;
   letter-spacing:.35em;

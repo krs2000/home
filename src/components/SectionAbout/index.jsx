@@ -1,24 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import color from '../../constants.js'
+import {color, device} from '../../constants.js'
 import { Header } from '../'
 import lookUp from '../../assets/lookUp.svg'
 import arrowUp from '../../assets/arrowUp.svg'
 
-  const Wrapper = styled.section`
+const Wrapper = styled.section`
 height: 100vh;
 width:100%;
+        @media ${device.laptop} {  
+width:50%;
+padding:0 25%;
+    }
 position: relative;
 color: ${color.light};
 overflow: hidden;
-padding:20% 0 0 25%;
 div{
-  width:70%;
+width:70%;
+padding:0 15%;
   h3{
     color: ${color.light};
     font-size: 4vh;
     text-align:start;
-    margin:.4rem 0 .4rem 0;
+    margin:.5em 0 0.5em 0;
     font-weight: 300;
      cursor:pointer;
     img{
@@ -30,7 +34,6 @@ div{
   span{
     color: ${color.primary};
    font-size: 3vh;
-    width:70%;
     margin:0.1vh 0 1vh 0;
     text-align:start;
     word-wrap:wrap;
@@ -79,7 +82,7 @@ class SectionAbout extends React.Component {
        return (<Wrapper>
     <Header color={color.light} rotate='true' text='About'/>
     {/* <div> */}
-   { this.state.options.map((option,index) =><div key={`about-${index}`}> <h3  onClick={()=>this.handleClick(index)}>{option.header}<img src={ this.state.active === index ? arrowUp : lookUp}/></h3>
+   { this.state.options.map((option,index) =><div key={`about-${index}`}> <h3  onClick={()=>this.handleClick(index)}>{option.header}<img src={ this.state.active === index ? arrowUp : lookUp} alt='typehead' /></h3>
   { this.state.active === index && <span >{option.text}</span>}
    
    </div>) }

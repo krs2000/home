@@ -1,7 +1,5 @@
 import React from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
-
-
 import { Home } from '../../components';
 
 const App = (props) => {
@@ -14,5 +12,4 @@ const App = (props) => {
     </Switch>
   )
 }
-
 export default withRouter(App);

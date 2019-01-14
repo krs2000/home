@@ -1,7 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-
-import color from '../../constants.js'
+import React from 'react'
+import styled from 'styled-components'
+import {color,device} from '../../constants.js'
 
 const Header  = (props) => {
   const  Wrapper = styled.section`
@@ -10,22 +9,21 @@ const Header  = (props) => {
   text-align:center;
   z-index:99;
   text-transform:capitalize;
-  font-size:1.5rem;
-  position: fixed;
-  top:calc(30vh + .1em);
-  left:calc(30px + 2%);
+  font-size:1rem;
   z-index:5;
   cursor: pointer;
   overflow: visible;
-  width:1rem;
-  h2{
-  font-weight:300;}
-  ${ props.rotate &&    'transform: rotate(90deg)' }
+  font-weight:600;
+  padding:.2rem;
+      @media ${device.laptop} {  
+     font-size:1.5rem;
+       padding:1rem;
+  }
  `;
 
   return (<Wrapper>
 
- <h2 className={props.rotate}  >{props.text}</h2> 
+ <h2>{props.text}</h2> 
 
 </Wrapper>)
 }

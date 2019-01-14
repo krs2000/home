@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter} from 'react-router-dom';
-import color from '../../constants.js'
-
+import {color} from '../../constants.js'
+import { Link } from 'react-router-dom'
 
 const Item = styled.div`
-
  background:${color.dark};
  height: 2rem;
  width: 100%;
  height:10vh;
-cursor:pointer;
+ cursor:pointer;
  font-size:1.4em;
  line-height:2em;
  font-weight:400;
@@ -21,47 +20,40 @@ cursor:pointer;
  display:flex;
  justify-content: center;
  align-items:center;
-max-height:10vh;
- z-index:99;
-
-   
+ max-height:10vh;
+ z-index:99; 
 &:hover{
     color:#dbaf40;
-  //  box-shadow: 2px 0px -2px -2px #dbaf40;
 }
-
 `;
 
 const menu = [{
-  name: 'Home',
-  route: '#welcome'
+  name: 'Welcome'
 }, {
-  name: 'Blog',
-  route: '#blog'
+  name: 'Blog'
 }, {
-  name: 'Projects',
-  route: '#projects'
+  name: 'Projects'
 }, {
-  name: 'About',
-  route: '#about'
+  name: 'About'
 }, {
-  name: 'Contact',
-  route: '#contact'
+  name: 'Contact'
 }]
 
 const scrollToMyRef = (index,props) => { 
       props.history.push('/' + index);
- 
     }
   
 
 const Wrapper = styled.section`
-    position:absolute;
+    position:fixed;
     bottom:0;
     right:0;
     width:100vw;  
     z-index:88;
     color: ${color.light};
+  `;
+const LinkStyled = styled(Link)`
+text-decoration:none;
   `;
 
   const BlackBox = styled.div`
@@ -82,8 +74,6 @@ const Menu = (props) => {
   margin: ${  isOpen ? '0rem' : '-200rem'};
   padding-bottom:10vh;
   background-color:${color.dark};
-   
-
   `
   
   return (
@@ -91,7 +81,7 @@ const Menu = (props) => {
       <Sidebar className={ props.isOpen ? 'slideRight': ''}>
         <BlackBox></BlackBox>
         {
-          menu.map((item, index) => <div  onClick={() => scrollToMyRef(item.route,props)} key={`item-${index}`}><Item>{item.name}</Item></div>)
+          menu.map((item, index) => <LinkStyled to={`/${item.name}`} key={`item-${index}`}><Item>{item.name}</Item></LinkStyled>)
         }
       </Sidebar>
     </Wrapper >

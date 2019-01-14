@@ -1,8 +1,6 @@
 import React ,{Component} from 'react';
-// import styled from 'styled-components';
 import { Motion, spring, presets } from 'react-motion';
-import color from '../../constants.js'
-
+import {color} from '../../constants.js'
 
   class MenuButton extends Component {
     constructor() {

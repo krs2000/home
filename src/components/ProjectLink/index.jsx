@@ -1,54 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
-import color from '../../constants.js'
+import {color} from '../../constants.js'
 
 const ProjectLink = (props) => {
 
   const Wrapper = styled.section`
-  width:80%;
-  display:inline-block;
-   padding:0.2vh 1vh;
-   border:0.16em solid ${color.light};
-   margin:2vh 0.5em;
+  background:none;
+  margin:1rem 0;
    box-sizing: border-box;
-   text-decoration:none;
- max-width: 700px;
    font-family:'Roboto',sans-serif;
    font-weight:900;
    color:${color.light};
-   text-align:center;
-   transition: all 0.15s;
-  box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
   p{
     margin:auto;
      font-weight:300;
   }
-&:hover{
-box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
-a p{
-  font-weight:bold;
-  margin:0;
-}
+
 }
   a {
     text-decoration: none;
     color: #696969 ;
-    background-color:pink;
- 
  div{
+     height:10vh;
       display:flex;
       justify-content:center;
       align-items:center;
      
     }
     span{
-  
+      padding:10px;
       font-size:1.5em;
+      line-height:30px;
     }
     img{
-      max-height:8vh;
+min-width:270px;
+max-width:50vh;
     }
-
 }
     `;
 
