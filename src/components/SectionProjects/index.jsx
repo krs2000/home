@@ -170,7 +170,7 @@ swipingRight = () => {
     return (
       <Wrapper>
         <Header color={color.dark} rotate='true' text='Projects'/>
-        <Box><span className={ this.state.firstCard ? 'active': ''} onClick={() => this.change(true)}>commercial</span>
+        <Box><span className={ this.state.firstCard ? 'active': ''} onClick={() => this.change(true)}>clients</span>
         <span className={ this.state.firstCard ?  '' :'active'}  onClick={() => this.change(false)}>personal</span>
         <Bg firstCard={ this.state.firstCard} swipe={ this.state.swipe}/></Box>
     <Swipeable

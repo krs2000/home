@@ -5,10 +5,16 @@ import Email from '../../assets/Email.svg'
 import {color, device} from '../../constants.js'
 import { Header } from '../'
 const Wrapper = styled.section`
+name{
+  font-size:1.2rem;
+}
 height:100vh;
+font-style: italic;
+letter-spacing: .05rem;
 color: ${color.light}
       span{         
            color: ${color.primary};
+        
         }
 }
 position:relative;
@@ -32,7 +38,8 @@ a{
   text-decoration:none;
 }
 article{
-  padding:0 15%;
+  padding:0 30% 0 10%;
+
 }
 p,h3{
   margin:0.2rem 0;
@@ -63,10 +70,8 @@ class SectionContact extends Component {
       <Wrapper>
         <Header color={color.light} rotate='true' text='Contact'/>
 
-      <article><p>Hello,</p>
-      <p>Do you wish a <span>new website</span>?</p>
-      <p>Are you looking for <span>front-end developer</span> for your projects?</p>
-         <p>     Let's work together.  </p> 
+      <article><p><span>In web dev, you are not going where no one has gone before.</span>  You are travelling a well-worn path of, inspired innovation and creativity.</p>
+      <name>Lorelle VanFossen</name>
                 </article>
                 
               <div><a href='https://www.linkedin.com/in/kris-krysiak-3aa83297/' rel="noopener noreferrer" target='_blank'> <img src={LinkedIn} alt="LinkedIn"/></a><a href="mailto:krskry@gmail.com">  <img src={Email} alt="Email"/></a></div>

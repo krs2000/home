@@ -8,13 +8,14 @@ import arrowUp from '../../assets/arrowUp.svg'
 const Wrapper = styled.section`
 height: 100vh;
 width:100%;
- 
+
+letter-spacing: .05rem;
 position: relative;
 color: ${color.light};
 overflow: hidden;
 div{
-width:70%;
-padding:0 15%;
+width:80%;
+padding:0 10%;
 
 @media ${device.laptop} {  
   padding:0 25%;
