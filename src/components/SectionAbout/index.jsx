@@ -11,12 +11,25 @@ display:flex;
 flex-direction:column;
 justify-content: space-around;
     img{
-
- 
       height: 1rem;
     }
     p{
       cursor: pointer;
+      display:flex;
+      justify-content:space-between;
+    }
+    @media ${device.laptop} {
+      p{
+        max-width:700px;
+      }
+    }
+    .container{
+     postion:absolute;
+     bottom:20vh;
+     left:12.5 vw;
+    }
+    .row{
+    
     }
 }
   `;
@@ -67,20 +80,19 @@ class SectionAbout extends React.Component {
     return (
       <Wrapper>
         <Header color={color.light} rotate="true" text="About" />
-        <div>
+        <div className='container'>
         {this.state.options.map((option, index) => (
-          <div key={`about-${index}`}>
+          <div className='row' key={`about-${index}`}>
             {" "}
-            <div>
               <p onClick={() => this.handleClick(index)}>
                 {option.header}
                 <img
                   src={this.state.active === index ? arrowUp : lookUp}
                   alt="typehead"
                 />
-                {this.state.active === index && <p>{option.text}</p>}
+               
               </p>
-            </div>
+              {this.state.active === index && <p>{option.text}</p>}
           </div>
         ))}
         </div>

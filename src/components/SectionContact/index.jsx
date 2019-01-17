@@ -4,6 +4,7 @@ import LinkedIn from "../../assets/Linkedin.svg";
 import Email from "../../assets/Email.svg";
 import { color, device } from "../../constants.js";
 import { Header } from "../";
+
 const Wrapper = styled.section`
 color: ${color.light}
 display:flex;
@@ -22,6 +23,13 @@ a{
 }
 span{
   font-style: oblique;
+}
+@media ${device.laptop} {
+  p{
+   margin-left:auto;
+    max-width:50vw;
+    text-align:center;
+  }
 }
 `;
 

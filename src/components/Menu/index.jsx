@@ -4,21 +4,24 @@ import { withRouter } from "react-router-dom";
 import { color } from "../../constants.js";
 import { Link } from "react-router-dom";
 import {ok } from '../../assets/ok.svg'
+import coding from '../../assets/coding.png'
+import spotlight from "../../assets/spotlight.jpg";
+
 const Item = styled.div`
   background: ${color.light};
   height: 2rem;
   width: 100%;
-  height: 10vh;
+  height: 12vh;
   cursor: pointer;
   line-height: 2em;
-  font-weight: 400;
+  font-weight: 600;
   transform-origin-y: 0%;
   color: ${color.dark};
   list-style-type: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 10vh;
+  max-height: 12vh;
   z-index:999;
   &:hover {
     color: #dbaf40;
@@ -53,19 +56,29 @@ const Wrapper = styled.div`
   left: 0;
   z-index:12;
   width: 220px;
+  
   color: ${color.light};
 
 `;
 
 const LinkStyled = styled(Link)`
   text-decoration: none;
+  
+
 `;
 
 const BlackBox = styled.div`
   width: 100vw;
+// display:flex;
+// justify-content:center;
+background-image: url(${props => props.img});
+  height: 30vh;
+  min-height:200px;
+  z-index:99;
 
-  height: 40vh;
-  z-index:12;
+  background-position: center;
+border-bottom:3px solid ${color.primary};
+
   
 `;
 
@@ -80,13 +93,13 @@ const Menu = props => {
     margin: ${isOpen ? "0rem" : "-200rem"};
     padding-bottom: 10vh;
  
-    background-color:  ${color.dark};
+    background-image: url(${props => props.img});
   `;
 
   return (
     <Wrapper>
-      <Sidebar className={props.isOpen ? "slideRight" : ""}>
-        <BlackBox ></BlackBox>
+      <Sidebar img={spotlight} className={props.isOpen ? "slideRight" : ""}>
+        <BlackBox img={spotlight}></BlackBox>
         {menu.map((item, index) => (
           <LinkStyled to={`/${item.name}`} key={`item-${index}`}>
             <Item>{item.name}</Item>

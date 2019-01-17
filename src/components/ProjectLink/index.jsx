@@ -1,26 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 import { color } from "../../constants.js";
-
+import spotlight from "../../assets/spotlight.jpg";
 const ProjectLink = props => {
   const Wrapper = styled.div`
-  background:none;
+ background:cover;
+  background-image: url(${props => props.img});
+
+  border-radius:1rem;
   margin:1rem 0;
    box-sizing: border-box;
    font-family:'Roboto',sans-serif;
    font-weight:900;
    color:${color.light};
+  width:80vw;
+max-width:60vh;
+min-height:30vh;
   p{
-    margin:auto;
+    margin:1rem;
      font-weight:300;
   }
 
 }
   a {
+    display:flex;
     text-decoration: none;
-    color: #696969 ;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+     color:${color.light};
  div{
-     height:10vh;
+  min-height:20vh;
       display:flex;
       justify-content:center;
       align-items:center;
@@ -31,14 +41,15 @@ const ProjectLink = props => {
       line-height:30px;
     }
     img{
-min-width:270px;
-max-width:50vh;
+      margin:3rem 0 0 0;
+      width:70vw;
+      max-width:360px;
     }
 }
     `;
 
   return (
-    <Wrapper>
+    <Wrapper img={spotlight}>
       <a href={props.page} rel="noopener noreferrer" target="_blank">
         <div>
           {props.image && <img src={props.image} alt="app icon" />}

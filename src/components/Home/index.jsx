@@ -32,6 +32,10 @@ h2{
   font-size:3rem;
 }
 @media ${device.laptop} {  
+  p{
+    font-size:1.5rem;
+    
+  }
 }
 section{
   margin-bottom:-2px;
@@ -164,7 +168,7 @@ class Home extends Component {
         <DecorationImage src={LinesDown} alt="decoration" />
         <SectionAbout />
         <SectionContact />
-        {this.state.active === 4 ? (
+    
           <Messanger>
             <MessengerCustomerChat
               pageId="410114706194481"
@@ -173,9 +177,7 @@ class Home extends Component {
               themeColor="#dbaf40"
             />
           </Messanger>
-        ) : (
-          ""
-        )}
+     
       </SwipeStyled>
     );
   }

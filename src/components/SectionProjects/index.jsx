@@ -44,9 +44,12 @@ const Box = styled.div`
       transform:scale(1.15);
       color: ${color.light};
     }
+    @media ${device.laptop} {
+      width: 128px;
+      margin-left: 100%;
+    }
   }
-  @media ${device.laptop} {
-  }
+
 `;
 const Bg = styled.div`
   &:before {
@@ -56,7 +59,7 @@ const Bg = styled.div`
     background: ${color.dark};
     @media ${device.laptop} {
       width: 128px;
-      left: calc(90% - 250px);
+      left: calc(100% - 68px);
     }
     left: 20%;
     height: 40px;
