@@ -54,12 +54,13 @@ const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index:12;
-  width: 100vw;
+  z-index:1;
+  width: 0;
   height:100vh;
  
 ${props => props.open &&    css`
 background: rgba(14, 17, 17, 0.5);
+width: 100vw;
 `};};
   
   color: ${color.light};
