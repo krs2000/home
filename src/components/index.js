@@ -4,7 +4,6 @@ export { default as Home } from './Home';
 export { default as Menu } from './Menu';
 export { default as MenuButton } from './MenuButton';
 export { default as Arrow } from './Arrow';
-export { default as Slogan } from './Slogan';
 export { default as SectionWelcome } from './SectionWelcome';
 export { default as SectionBlog } from './SectionBlog';
 export { default as Header } from './Header';

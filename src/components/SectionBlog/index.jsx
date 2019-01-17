@@ -1,76 +1,87 @@
-import React from 'react';
-import img from '../../assets/decoration.jpg';
-import Swipeable from 'react-swipeable'
-import {color, device} from '../../constants.js'
-import { Header, Arrow } from '../'
-import styled from 'styled-components';
+import React from "react";
+import Swipeable from "react-swipeable";
+import styled from "styled-components";
+import img from "../../assets/decoration.jpg";
+import { color, device } from "../../constants.js";
+import { Header, Arrow } from "../";
 
-const Arrows = styled.section`
-width:100%;
-height:3rem;
-display:flex;
-justify-content:center;
-  @media ${device.laptop} {  
-.left{
-position:absolute;
-top:60vh;
-left:15vw;
-}
-.right{
-position:absolute;
-top:60vh;
-right:15vw;
-}
-    }
-div{
-  cursor:pointer;
-}
-  `;
-const Wrapper = styled.section`
-height: 100vh;
+const Arrows = styled.div`
 
-padding:13vh 0;
-background: ${color.light};
-position: relative;
-  `;
-
-const SwipeBlog = styled.section`
-  height: 60vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  .blog_item{
-max-width:60%;
-    //   min-width:280px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  div {
+    cursor: pointer;
   }
-  img{
-  max-width:60vw;
-  //    min-width:260px;
-  // max-height:40vh;
-}
-h4{
-  text-align:center;
-}
-    `;
+`;
+const Wrapper = styled.section`
+  background: ${color.light};
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+`;
 
+const SwipeBlog = styled.div`
+  .blog_item {
+  width:auto;
+  position:relative;
+  background-color: ${color.dark};
+ 
+    img {
+      min-height:60vh;
+      max-width: 100%;
+     
+      position:relative;
+      width: 100%;
+      height: 100%;
+      opacity: 0.30;
+      -moz-opacity: 30%;
+      -webkit-opacity: 30%;
+      z-index: 2;
 
+    }
+    h4{
+      position:absolute;
+      color:${color.primary};
+      top:10%;
+      left:20%;
+      font-size:10wv;
+      opacity:1;
+    }
+    p{
+      position:absolute;
+      color:${color.light}
+      top:30%;
+      left:20%;
+      font-size:1em;
+      opacity:1;
 
-const returnArticles = (article) => {
+    }
+
+  }
+`;
+const SwipeableStyled = styled(Swipeable)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const returnArticles = article => {
   return (
-    <div className='blog_item' key={`article-${article._id}`}>
-        <h4>{article.title}</h4>
-        <p>{article.body}</p>
-      <img className="card__image" src="https://source.unsplash.com/category/nature/400x260" alt="blog" />
-      <div className="card__copy">
-      </div>
-
-    </div>)
-}
-
+    <div className="blog_item" key={`article-${article._id}`}>
+      <h4>{article.title}</h4>
+      <p>{article.body}</p>
+      <img
+        className="card__image"
+        src="https://source.unsplash.com/category/nature/400x260"
+        alt="blog"
+      />
+      <div className="card__copy" />
+    </div>
+  );
+};
 
 class SectionBlog extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -78,34 +89,43 @@ class SectionBlog extends React.Component {
     };
   }
 
-swipingLeft = () => {
-  let newSwipe = this.state.swipe
-  newSwipe--
-  if(newSwipe >= 0)
-  this.setState({ swipe: newSwipe })
-  }
+  swipingLeft = () => {
+    let newSwipe = this.state.swipe;
+    newSwipe--;
+    if (newSwipe >= 0) this.setState({ swipe: newSwipe });
+  };
 
-swipingRight = () => {
-  let newSwipe = this.state.swipe 
-  newSwipe++
-  if(newSwipe < this.props.articles.length)
-  this.setState({ swipe: newSwipe})
-  }
+  swipingRight = () => {
+    let newSwipe = this.state.swipe;
+    newSwipe++;
+    if (newSwipe < this.props.articles.length)
+      this.setState({ swipe: newSwipe });
+  };
 
-  render(){
-  return (<Wrapper>
-  <Header color={color.dark}  text='Blog'/>
-  <Swipeable
-    onSwipingLeft={()=>this.swipingLeft()}
-    onSwipingRight={()=>this.swipingRight()}
-  >
-  <SwipeBlog>
-      {this.props.articles.slice(this.state.swipe,this.state.swipe + 1).map((article) => returnArticles(article))}
-      </SwipeBlog>
-  </Swipeable>
-     <Arrows><div className='left' onClick={()=>this.swipingLeft()}><Arrow left /></div>
-    <div className='right' onClick={()=>this.swipingRight()}><Arrow /></div></Arrows>
-  </Wrapper>)
-}
+  render() {
+    return (
+      <Wrapper>
+        <Header color={color.dark} text="Blog" />
+        <SwipeableStyled
+          onSwipingLeft={() => this.swipingLeft()}
+          onSwipingRight={() => this.swipingRight()}
+        >
+          <SwipeBlog>
+            {this.props.articles
+              .slice(this.state.swipe, this.state.swipe + 1)
+              .map(article => returnArticles(article))}
+          </SwipeBlog>
+        </SwipeableStyled>
+        <Arrows>
+          <div className="left" onClick={() => this.swipingLeft()}>
+            <Arrow left />
+          </div>
+          <div className="right" onClick={() => this.swipingRight()}>
+            <Arrow />
+          </div>
+        </Arrows>
+      </Wrapper>
+    );
+  }
 }
 export default SectionBlog;
