@@ -29,7 +29,7 @@ section {
   height:100vh;
 }
 h2{
-  padding:12.5% 0 0 0;
+  padding:5% 0 ;
   font-size:3rem;
 }
 @media ${device.laptop} {  

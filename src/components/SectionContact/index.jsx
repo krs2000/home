@@ -9,11 +9,14 @@ const Wrapper = styled.section`
 position:relative;
 svg{
 position:absolute;
-width:25vw;
+width:35vw;
 top:28vh;
-opacity: 0.9;
 left:12.5vw;
 }
+   article{
+
+    margin-top:10vh;
+    }
 color: ${color.light}
 display:flex;
 flex-direction:column;
@@ -45,6 +48,9 @@ span{
       margin-right:2vw
 
   }
+  svg{
+    width:25vw;
+    }
 }
 `;
 

@@ -28,7 +28,8 @@ const SwipeBlog = styled.div`
   background-color: ${color.dark};
  
     img {
-      min-height:60vh;
+      min-height:55vh;
+       max-height:60vh;
       max-width: 100%;
       min-width: 60vw;
       position:relative;
