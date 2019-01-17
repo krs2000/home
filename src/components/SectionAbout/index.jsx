@@ -15,6 +15,7 @@ justify-content: space-around;
       height: 1rem;
     }
     p{
+      letter-spacing:.1rem;
       cursor: pointer;
       display:flex;
       justify-content:space-between;

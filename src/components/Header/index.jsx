@@ -8,6 +8,7 @@ const Header = props => {
     font-style: oblique;
     text-transform: capitalize;
     cursor: pointer;
+  
     &:first-letter {
       color: ${color.primary};
     }

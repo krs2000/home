@@ -30,6 +30,10 @@ span{
     max-width:50vw;
     text-align:center;
   }
+  img{
+    width:3rem;
+
+  }
 }
 `;
 
@@ -54,7 +58,7 @@ class SectionContact extends Component {
             <span>Lorelle VanFossen</span>
           </p>
         </article>
-        <p>
+        <div>
           <a
             href="https://www.linkedin.com/in/kris-krysiak-3aa83297/"
             rel="noopener noreferrer"
@@ -65,7 +69,7 @@ class SectionContact extends Component {
           <a href="mailto:krskry@gmail.com">
             <img src={Email} alt="Email" />
           </a>
-        </p>
+        </div>
       </Wrapper>
     );
   }

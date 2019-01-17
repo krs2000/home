@@ -151,6 +151,9 @@ class Home extends Component {
     const Messanger = styled.div`
       .fb_dialog {
         display: ${this.state.active === 4 ? "inline" : "none !important"};
+        position: absolute:
+        bottom:2rem;
+        left:12.5vw;
       }
     `;
 

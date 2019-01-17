@@ -6,6 +6,7 @@ import Cba from "../../assets/cba.png";
 import Ob from "../../assets/ob.png";
 import Inwedo from "../../assets/inwedo.png";
 import Swipeable from "react-swipeable";
+
 const Arrows = styled.div`
   width: 100%;
   display: flex;

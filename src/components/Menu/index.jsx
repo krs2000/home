@@ -1,14 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+import styled ,{css}from "styled-components";
 import { withRouter } from "react-router-dom";
-import { color } from "../../constants.js";
+import { color, device } from "../../constants.js";
 import { Link } from "react-router-dom";
 import {ok } from '../../assets/ok.svg'
 import coding from '../../assets/coding.png'
 import spotlight from "../../assets/spotlight.jpg";
 
 const Item = styled.div`
-  background: ${color.light};
+  background: ${color.dark};
   height: 2rem;
   width: 100%;
   height: 12vh;
@@ -16,7 +16,7 @@ const Item = styled.div`
   line-height: 2em;
   font-weight: 600;
   transform-origin-y: 0%;
-  color: ${color.dark};
+  color: ${color.light};
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -55,7 +55,12 @@ const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index:12;
-  width: 220px;
+  width: 100vw;
+  height:100vh;
+ 
+${props => props.open &&    css`
+background: rgba(14, 17, 17, 0.5);
+`};};
   
   color: ${color.light};
 
@@ -75,7 +80,9 @@ background-image: url(${props => props.img});
   height: 30vh;
   min-height:200px;
   z-index:99;
-
+  @media ${device.laptop} {
+    width: 20vw;
+  }
   background-position: center;
 border-bottom:3px solid ${color.primary};
 
@@ -90,14 +97,18 @@ const Menu = props => {
     display: flex;
     z-index:12;
     flex-direction: column;
+  
     margin: ${isOpen ? "0rem" : "-200rem"};
     padding-bottom: 10vh;
  
     background-image: url(${props => props.img});
+    @media ${device.laptop} {
+      width: 20vw;
+    }
   `;
 
   return (
-    <Wrapper>
+    <Wrapper open={props.isOpen}>
       <Sidebar img={spotlight} className={props.isOpen ? "slideRight" : ""}>
         <BlackBox img={spotlight}></BlackBox>
         {menu.map((item, index) => (
