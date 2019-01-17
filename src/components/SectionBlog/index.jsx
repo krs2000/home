@@ -30,7 +30,7 @@ const SwipeBlog = styled.div`
     img {
       min-height:60vh;
       max-width: 100%;
-     
+      min-width: 60vw;
       position:relative;
       width: 100%;
       height: 100%;
