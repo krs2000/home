@@ -10,6 +10,7 @@ color: ${color.light}
 display:flex;
 flex-direction:column;
 justify-content: space-around;
+
     img{
       height: 1rem;
     }
@@ -24,9 +25,9 @@ justify-content: space-around;
       }
     }
     .container{
-     postion:absolute;
+    height:50vh;
      bottom:20vh;
-     left:12.5 vw;
+     left:12.5vw;
     }
     .row{
     
