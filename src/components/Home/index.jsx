@@ -23,12 +23,13 @@ import Swipe from "react-easy-swipe";
 import IsScrolling from "react-is-scrolling";
 
 const SwipeStyled = styled(Swipe)`
+  transition: transform 0.9s ease-out;
 section {
   padding: 0 12.5%;
   height:100vh;
 }
 h2{
-  padding:5% 0;
+  padding:12.5% 0 0 0;
   font-size:3rem;
 }
 @media ${device.laptop} {  

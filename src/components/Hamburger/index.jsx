@@ -92,17 +92,20 @@ class Hamburger extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.location !== prevProps.location) {
       this.setState({ menuOpen: false });
+       document.body.style.overflow = "auto"
     }
   }
 
   handleMenuClick = () => {
     console.log('ds')
-    this.setState({ menuOpen: !this.state.menuOpen });
+    this.setState({ menuOpen: !this.state.menuOpen },()=>  this.state.menuOpen ?   document.body.style.overflow = "hidden":   document.body.style.overflow = "auto");
+
 
   };
 
   handleLinkClick = () => {
     this.setState({ menuOpen: false });
+  document.body.style.overflow = "auto"
   };
 
   render() {

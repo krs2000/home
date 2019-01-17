@@ -38,9 +38,12 @@ min-height:30vh;
     }
     span{
       padding:10px;
+      padding-top:40px;
       line-height:30px;
+      font-size:4vh;
     }
     img{
+
       margin:3rem 0 0 0;
       width:70vw;
       max-width:360px;

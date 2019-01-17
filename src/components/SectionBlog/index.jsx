@@ -34,10 +34,10 @@ const SwipeBlog = styled.div`
       position:relative;
       width: 100%;
       height: 100%;
-      opacity: 0.30;
-      -moz-opacity: 30%;
-      -webkit-opacity: 30%;
-      z-index: 2;
+      opacity: 0.40;
+      -moz-opacity: 40%;
+      -webkit-opacity: 40%;
+ 
 
     }
     h4{
@@ -47,6 +47,7 @@ const SwipeBlog = styled.div`
       left:20%;
       font-size:10wv;
       opacity:1;
+      z-index:1;
     }
     p{
       position:absolute;
@@ -55,6 +56,7 @@ const SwipeBlog = styled.div`
       left:20%;
       font-size:1em;
       opacity:1;
+      z-index:1;
 
     }
 
